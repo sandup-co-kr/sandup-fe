@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'NanumSquare_ac';
+    src: url('../../public/fonts/NanumSquare_ac.ttf') format('truetype');
+    /* Replace the URL with the correct path to your font file */
+  }
+  
+  body {
+    font-family: 'NanumSquare_ac', sans-serif;
+  }
