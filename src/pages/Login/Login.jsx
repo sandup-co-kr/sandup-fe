@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const LoginContainer = styled.div`
@@ -22,7 +22,7 @@ const IDInput = styled.input`
   position: absolute;
   width: 324px;
   height: 53px;
-  left: 18px;
+  left: calc(50% - 324px / 2);
   top: 280px;
 
   border: 1px solid #e8e8e8;
@@ -37,7 +37,7 @@ const PWInput = styled.input`
   position: absolute;
   width: 324px;
   height: 53px;
-  left: 18px;
+  left: calc(50% - 324px / 2);
   top: 343px;
 
   border: 1px solid #e8e8e8;
@@ -50,7 +50,7 @@ const LoginButton = styled(Button)`
   position: absolute;
   width: 324px;
   height: 60px;
-  left: 18px;
+  left: calc(50% - 324px / 2);
   top: 412px;
 
   background: linear-gradient(
@@ -60,33 +60,55 @@ const LoginButton = styled(Button)`
     #aed5ff 69.07%,
     #84aece 97.76%
   );
-
   border-radius: 30px;
 `;
 
 const RegisterButton = styled(Button)`
   position: absolute;
-  width: 194px;
+  width: 52px;
   height: 10px;
-  left: calc(50% - 194px / 2 - 60px);
+  left: calc(50% - 52px / 2 - 71px);
   top: 491px;
+
+  font-family: "NanumSquare_ac";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+
+  leading-trim: both;
+  text-edge: cap;
+
+  color: #6d97b2;
 `;
 
-const Or = styled(Button)`
+const Or = styled(Box)`
   position: absolute;
-  width: 194px;
-  height: 10px;
-  left: calc(50% - 194px / 2 - 27px);
-  top: 491px;
-  cursor: default;
+  width: 0px;
+  height: 3.5px;
+  left: calc(50% - 0px / 2 - 33px);
+  top: 494.5px;
+
+  border: 1px solid #6d97b2;
 `;
 
 const FindInfoButton = styled(Button)`
   position: absolute;
-  width: 194px;
+  width: 126px;
   height: 10px;
-  left: calc(50% - 194px / 2 + 40px);
+  left: calc(50% - 126px / 2 + 34px);
   top: 491px;
+
+  font-family: "NanumSquare_ac";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+
+  leading-trim: both;
+  text-edge: cap;
+
+  color: #6d97b2;
 `;
 
 const EasyLoginText = styled.p`
@@ -107,11 +129,11 @@ const EasyLoginText = styled.p`
   color: #8e8e8e;
 `;
 
-const SocialLoginContainer = styled.div`
-  top: 650px;
+const SocialLoginContainer = styled(Box)`
+  top: 670px;
   position: absolute;
   display: flex;
-  left: calc(50% - 194px / 2);
+  left: calc(50% - 222px / 2);
   justify-content: center;
   align-items: center;
 `;
@@ -128,9 +150,9 @@ const SocialLoginButton = styled(Button)`
 `;
 
 const SocialLoginIcon = styled.img`
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  position: absolute;
+  width: 56.78px;
+  height: 56.78px;
 `;
 
 const Login = () => {
@@ -145,11 +167,7 @@ const Login = () => {
 
   return (
     <LoginContainer>
-      <LogoImage
-        src={`${process.env.PUBLIC_URL}/assets/logo.png`}
-        alt="Logo"
-        className="logo-image"
-      />
+      <LogoImage src={`${process.env.PUBLIC_URL}/assets/logo.png`} alt="Logo" />
       <form onSubmit={handleSubmit}>
         <IDInput
           value={id}
@@ -157,6 +175,7 @@ const Login = () => {
           placeholder="아이디"
         />
         <PWInput
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="비밀번호"
@@ -164,18 +183,27 @@ const Login = () => {
         <LoginButton type="submit">로그인</LoginButton>
       </form>
       <RegisterButton>회원가입</RegisterButton>
-      <Or>|</Or>
+      <Or />
       <FindInfoButton>아이디/비밀번호 찾기</FindInfoButton>
       <EasyLoginText>간편 로그인</EasyLoginText>
       <SocialLoginContainer>
         <SocialLoginButton>
-          <SocialLoginIcon />
+          <SocialLoginIcon
+            src={`${process.env.PUBLIC_URL}/assets/kakaoLoginButton.png`}
+            alt="Kakao Login"
+          />
         </SocialLoginButton>
         <SocialLoginButton>
-          <SocialLoginIcon />
+          <SocialLoginIcon
+            src={`${process.env.PUBLIC_URL}/assets/naverLoginButton.png`}
+            alt="Kakao Login"
+          />
         </SocialLoginButton>
         <SocialLoginButton>
-          <SocialLoginIcon />
+          <SocialLoginIcon
+            src={`${process.env.PUBLIC_URL}/assets/googleLoginButton.png`}
+            alt="Kakao Login"
+          />
         </SocialLoginButton>
       </SocialLoginContainer>
     </LoginContainer>
