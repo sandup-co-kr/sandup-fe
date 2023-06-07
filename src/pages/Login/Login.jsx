@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const LoginContainer = styled.div`
   position: relative;
@@ -65,15 +66,15 @@ const LoginButton = styled(Button)`
 
 const RegisterButton = styled(Button)`
   position: absolute;
-  width: 52px;
+  width: 70px;
   height: 10px;
-  left: calc(50% - 52px / 2 - 71px);
+  left: calc(50% - 60px / 2 - 71px);
   top: 491px;
 
   font-family: "NanumSquare_ac";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 150%;
 
   leading-trim: both;
@@ -82,7 +83,7 @@ const RegisterButton = styled(Button)`
   color: #6d97b2;
 `;
 
-const Or = styled(Box)`
+const Or = styled(Typography)`
   position: absolute;
   width: 0px;
   height: 3.5px;
@@ -94,15 +95,15 @@ const Or = styled(Box)`
 
 const FindInfoButton = styled(Button)`
   position: absolute;
-  width: 126px;
+  width: 150px;
   height: 10px;
-  left: calc(50% - 126px / 2 + 34px);
+  left: calc(50% - 150px / 2 + 42px);
   top: 491px;
 
   font-family: "NanumSquare_ac";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 150%;
 
   leading-trim: both;
@@ -111,11 +112,11 @@ const FindInfoButton = styled(Button)`
   color: #6d97b2;
 `;
 
-const EasyLoginText = styled.p`
+const EasyLoginText = styled(Typography)`
   position: absolute;
-  width: 69px;
+  width: 74px;
   height: 10px;
-  left: calc(50% - 69px / 2 - 0.5px);
+  left: calc(50% - 74px / 2);
   top: 604px;
 
   font-family: "NanumSquare_ac";
@@ -155,14 +156,40 @@ const SocialLoginIcon = styled.img`
   height: 56.78px;
 `;
 
+const LoginFailedModal = styled.div`
+  position: absolute;
+  width: 293px;
+  height: 149px;
+  left: calc(50% - 345px / 2 + 2.5px);
+  top: calc(50% - 201px / 2 - 2.5px);
+
+  background: #ffffff;
+  border-radius: 15px;
+
+  padding: 26px;
+`;
+
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoginFailed, setIsLoginFailed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic with id and password
-    // ...
+    console.log("id: ", id, "password: ", password);
+    if (false)
+      // TODO: Check if id and password are valid
+      setIsLoginFailed(true);
+    if (true) navigate("/");
+  };
+
+  const handleModalClose = () => {
+    setIsLoginFailed(false);
+  };
+
+  const handelRegister = () => {
+    navigate("/register");
   };
 
   return (
@@ -182,7 +209,7 @@ const Login = () => {
         />
         <LoginButton type="submit">로그인</LoginButton>
       </form>
-      <RegisterButton>회원가입</RegisterButton>
+      <RegisterButton onClick={handelRegister}>회원가입</RegisterButton>
       <Or />
       <FindInfoButton>아이디/비밀번호 찾기</FindInfoButton>
       <EasyLoginText>간편 로그인</EasyLoginText>
@@ -206,6 +233,31 @@ const Login = () => {
           />
         </SocialLoginButton>
       </SocialLoginContainer>
+      <Modal open={isLoginFailed} onClose={handleModalClose}>
+        <LoginFailedModal>
+          <Typography variant="h6">로그인 실패</Typography>
+          <Typography variant="body1">
+            아이디/비밀번호가 일치하지 않습니다.
+            <br />
+            다시 한 번 확인해주세요.
+          </Typography>
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{ marginTop: "40px", marginLeft: "65px" }}
+          >
+            아이디/비밀번호 찾기
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: "40px", marginLeft: "10px" }}
+            onClick={handleModalClose}
+          >
+            확인
+          </Button>
+        </LoginFailedModal>
+      </Modal>
     </LoginContainer>
   );
 };
