@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Button, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
+import handleGoBack from "../../utils/Common/handleGoBack";
 
 // TODO: Need to fix design
 const GoBackButton = styled(IconButton)`
@@ -323,7 +324,7 @@ function Register() {
 
   return (
     <>
-      <GoBackButton />
+      <GoBackButton onClick={handleGoBack} />
       <Title>샌드업에 오신 것을 환영합니다</Title>
       <SubTitle>샌드업을 이용하시기 위해서는 약관동의가 필요합니다.</SubTitle>
       <CheckButton1 onClick={handleCheckButton1Click}>

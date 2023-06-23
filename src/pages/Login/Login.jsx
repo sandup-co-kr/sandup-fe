@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import useLoginMutation from "../../hooks/Login/useLoginMutation";
 
 const LoginContainer = styled.div`
   position: relative;
@@ -171,17 +172,19 @@ const LoginFailedModal = styled.div`
 
 const Login = () => {
   const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+  const [pw, setPw] = useState("");
   const [isLoginFailed, setIsLoginFailed] = useState(false);
   const navigate = useNavigate();
+  const loginMutation = useLoginMutation();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("id: ", id, "password: ", password);
-    if (false)
-      // TODO: Check if id and password are valid
-      setIsLoginFailed(true);
-    if (true) navigate("/");
+    console.log("id: ", id, "password: ", pw);
+    localStorage.setItem("phone", "");
+    await loginMutation.mutateAsync({ id, pw });
+    const phone = localStorage.getItem("phone");
+    if (phone) navigate("/");
+    else setIsLoginFailed(true);
   };
 
   const handleModalClose = () => {
@@ -203,8 +206,8 @@ const Login = () => {
         />
         <PWInput
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={pw}
+          onChange={(e) => setPw(e.target.value)}
           placeholder="비밀번호"
         />
         <LoginButton type="submit">로그인</LoginButton>
