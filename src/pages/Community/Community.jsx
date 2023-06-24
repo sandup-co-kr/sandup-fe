@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
 import getUserInfo from "../../ services/Common/Get/getUserInfo";
 
-const Main = () => {
+function Community() {
   const phone = localStorage.getItem("phone");
   const [userInfo, setUserInfo] = useState([]);
 
@@ -25,9 +25,9 @@ const Main = () => {
   }
   return (
     <div>
-      <h2>Main Page</h2>
+      <h2>Community Page</h2>
     </div>
   );
-};
+}
 
-export default Main;
+export default Community;
