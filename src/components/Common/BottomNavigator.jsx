@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
 
 const NavbarContainer = styled.div`
   height: 92px;
@@ -65,7 +64,7 @@ const Text = styled.img`
   line-height: 150%;
 `;
 
-const Navigator = () => {
+const BottomNavigator = () => {
   const location = useLocation();
   const allowedRoutes = ["/", "/magazine", "/community", "/shop", "/mypage"];
   const isRouteAllowed = allowedRoutes.includes(location.pathname);
@@ -77,7 +76,7 @@ const Navigator = () => {
 
   return (
     isRouteAllowed && (
-      <NavbarContainer className="navbar-container">
+      <NavbarContainer>
         <img
           src={`${process.env.PUBLIC_URL}/assets/navbarCover.png`}
           alt="Navbar Cover"
@@ -85,7 +84,7 @@ const Navigator = () => {
         />
         <NavbarList>
           <NavbarListItem onClick={() => handleNavClick(0)}>
-            <NavbarLink exact to="/" activeClassName="active">
+            <NavbarLink exact to="/">
               <NavIconContainer>
                 <Icon
                   src={
@@ -107,7 +106,7 @@ const Navigator = () => {
             </NavbarLink>
           </NavbarListItem>
           <NavbarListItem onClick={() => handleNavClick(1)}>
-            <NavbarLink exact to="/magazine" activeClassName="active">
+            <NavbarLink exact to="/magazine">
               <NavIconContainer>
                 <Icon
                   src={
@@ -129,7 +128,7 @@ const Navigator = () => {
             </NavbarLink>
           </NavbarListItem>
           <NavbarListItem onClick={() => handleNavClick(2)}>
-            <NavbarLink exact to="/community" activeClassName="active">
+            <NavbarLink exact to="/community">
               <NavIconContainer>
                 <Icon
                   src={
@@ -151,7 +150,7 @@ const Navigator = () => {
             </NavbarLink>
           </NavbarListItem>
           <NavbarListItem onClick={() => handleNavClick(3)}>
-            <NavbarLink exact to="/shop" activeClassName="active">
+            <NavbarLink exact to="/shop">
               <NavIconContainer>
                 <Icon
                   src={
@@ -173,7 +172,7 @@ const Navigator = () => {
             </NavbarLink>
           </NavbarListItem>
           <NavbarListItem onClick={() => handleNavClick(4)}>
-            <NavbarLink exact to="/mypage" activeClassName="active">
+            <NavbarLink exact to="/mypage">
               <NavIconContainer>
                 <Icon
                   src={
@@ -200,4 +199,4 @@ const Navigator = () => {
   );
 };
 
-export default Navigator;
+export default BottomNavigator;

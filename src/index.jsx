@@ -4,8 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Navigator from "./components/Common/Navigator";
+import BottomNavigator from "./components/Common/BottomNavigator";
 import { BrowserRouter } from "react-router-dom";
+import TopNavigator from "./components/Common/TopNavigator";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
@@ -13,8 +14,9 @@ const queryClient = new QueryClient();
 root.render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
+      <TopNavigator />
       <App />
-      <Navigator />
+      <BottomNavigator />
     </BrowserRouter>
   </QueryClientProvider>
 );
