@@ -54,7 +54,6 @@ const Icon = styled.img`
 
 const Text = styled.img`
   margin-top: 5px;
-  width: 10px;
   height: 10px;
   color: #adcef4;
   leading-trim: both;
@@ -111,18 +110,18 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/navMainIconClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/navMainIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navMagazineIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navMagazineIcon.svg`
                   }
-                  alt="Main Icon"
+                  alt="Magazine Icon"
                 />
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/navMainTextClicked.png`
-                      : `${process.env.PUBLIC_URL}/assets/navMainText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navMagazineTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navMagazineText.png`
                   }
-                  alt="Main Icon"
+                  alt="Magazine Icon"
                 />
               </NavIconContainer>
             </NavbarLink>
@@ -133,18 +132,18 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/navMainIconClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/navMainIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navCommunityIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navCommunityIcon.svg`
                   }
-                  alt="Main Icon"
+                  alt="Community Icon"
                 />
                 <Text
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/navMainTextClicked.png`
-                      : `${process.env.PUBLIC_URL}/assets/navMainText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navCommunityTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navCommunityText.png`
                   }
-                  alt="Main Icon"
+                  alt="Community Icon"
                 />
               </NavIconContainer>
             </NavbarLink>
@@ -155,18 +154,18 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/navMainIconClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/navMainIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navShopIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navShopIcon.svg`
                   }
-                  alt="Main Icon"
+                  alt="Shop Icon"
                 />
                 <Text
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/navMainTextClicked.png`
-                      : `${process.env.PUBLIC_URL}/assets/navMainText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navShopTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navShopText.png`
                   }
-                  alt="Main Icon"
+                  alt="Shop Icon"
                 />
               </NavIconContainer>
             </NavbarLink>
@@ -177,18 +176,18 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/navMainIconClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/navMainIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navMypageIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navMypageIcon.svg`
                   }
-                  alt="Main Icon"
+                  alt="Mypage Icon"
                 />
                 <Text
                   src={
                     activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/navMainTextClicked.png`
-                      : `${process.env.PUBLIC_URL}/assets/navMainText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navMypageTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navMypageText.png`
                   }
-                  alt="Main Icon"
+                  alt="Mypage Icon"
                 />
               </NavIconContainer>
             </NavbarLink>
