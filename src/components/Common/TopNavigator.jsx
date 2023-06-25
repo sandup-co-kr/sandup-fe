@@ -10,6 +10,7 @@ const TopNavigatorContainer = styled.div`
   width: 100%;
   height: 67px;
   flex-shrink: 0;
+  margin-bottom: 3px;
 `;
 
 const Logo = styled.img`
@@ -31,7 +32,7 @@ const UserInfoContainer = styled.div`
 
 const UserName = styled.div`
   font-family: NanumSquare_ac;
-  color: #6d97b2;
+  color: #0a81ce;
   margin-right: 10px;
   leading-trim: both;
   text-edge: cap;
@@ -42,7 +43,7 @@ const UserName = styled.div`
 
 const Point = styled.div`
   font-family: NanumSquare_ac;
-  color: #6d97b2;
+  color: #0a81ce;
   margin-right: 12px;
   leading-trim: both;
   text-edge: cap;
@@ -54,6 +55,7 @@ const Point = styled.div`
 const Alert = styled.img`
   width: 24px;
   height: 24px;
+  margin-top: -3px;
   flex-shrink: 0;
 `;
 
@@ -82,7 +84,7 @@ const LoginButtonText = styled(Typography)`
   top: 6px;
   right: 11px;
   position: absolute;
-  color: var(--unnamed, #0a81ce);
+  color: #0a81ce;
   leading-trim: both;
   text-edge: cap;
   font-size: 15px;
