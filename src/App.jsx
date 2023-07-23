@@ -8,6 +8,7 @@ import Magazine from "./pages/Magazine";
 import Community from "./pages/Community";
 import Shop from "./pages/Shop";
 import MyPage from "./pages/MyPage";
+import ColumnDetail from "./pages/ColumnDetail";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/community" element={<Community />} />
       <Route exact path="/shop" element={<Shop />} />
       <Route exact path="/mypage" element={<MyPage />} />
+      <Route exact path="/column/:id" element={<ColumnDetail />} />
     </Routes>
   );
 }

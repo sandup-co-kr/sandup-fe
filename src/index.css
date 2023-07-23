@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.control-dots .dot{
+  width: 13px !important;
+  height: 13px !important;
+  background: #BDDDFF !important;
+}
