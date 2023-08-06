@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router";
-import CategoryNavigator from "../../components/Common/CategoryNavigator";
+import CategoryNavigator from "../../components/Main/CategoryNavigator";
 
 const MainImage = styled.img`
   width: 100%;
