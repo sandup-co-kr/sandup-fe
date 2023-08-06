@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router";
+import CategoryNavigator from "../../components/Common/CategoryNavigator";
 
 const MainImage = styled.img`
   width: 100%;
@@ -13,7 +14,7 @@ const MainImage = styled.img`
   filter: brightness(0.45);
 `;
 
-const MainTitle = styled.p`
+const MainLink = styled.p`
   width: 100%;
   z-index: 1;
   position: absolute;
@@ -26,7 +27,7 @@ const MainTitle = styled.p`
   line-height: 150%;
 `;
 
-const MainSubTitle1 = styled.p`
+const MainTitle = styled.p`
   width: 100%;
   z-index: 1;
   position: absolute;
@@ -39,7 +40,7 @@ const MainSubTitle1 = styled.p`
   line-height: 150%;
 `;
 
-const MainSubTitle2 = styled.p`
+const MainSubTitle = styled.p`
   width: 70%;
   z-index: 1;
   position: absolute;
@@ -77,7 +78,7 @@ const Main = () => {
   const navigate = useNavigate();
   const [userMainList, setUserMainList] = useState([]);
 
-  const handleCarouselTitleClick = (id) => {
+  const handleCarouselLinkClick = (id) => {
     navigate(`/column/${id}`);
   };
 
@@ -96,39 +97,42 @@ const Main = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <Carousel
-      showArrows={false}
-      showStatus={false}
-      autoPlay={true}
-      infiniteLoop={true}
-    >
-      {userMainList?.map((element) => (
-        <div>
-          <MainImage src={element.main_img} />
-          <MainSubTitle1>{element.subtitle1}</MainSubTitle1>
-          <MainSubTitle2>{element.subtitle2}</MainSubTitle2>
-          <MainHyphen>
-            <img
-              style={{ width: "15px" }}
-              src={"./assets/mainTitleHyphen.svg"}
-              alt="title_arrow"
-            />
-          </MainHyphen>
-          <MainContent>
-            {element.content?.split(".")[0]}
-            {element.content?.split(".")[1]}
-          </MainContent>
-          <MainTitle onClick={() => handleCarouselTitleClick(element.id)}>
-            {element.title}
-            <img
-              style={{ width: "25px", marginLeft: "10px", marginTop: "1px" }}
-              src={"./assets/mainTitleArrow.svg"}
-              alt="title_arrow"
-            />
-          </MainTitle>
-        </div>
-      ))}
-    </Carousel>
+    <>
+      <Carousel
+        showArrows={false}
+        showStatus={false}
+        autoPlay={true}
+        infiniteLoop={true}
+      >
+        {userMainList?.map((element) => (
+          <div>
+            <MainImage src={element.main_img} />
+            <MainTitle>{element.title}</MainTitle>
+            <MainSubTitle>{element.subtitle}</MainSubTitle>
+            <MainHyphen>
+              <img
+                style={{ width: "15px" }}
+                src={"./assets/mainTitleHyphen.svg"}
+                alt="title_arrow"
+              />
+            </MainHyphen>
+            <MainContent>
+              {element.content?.split(".")[0]}
+              {element.content?.split(".")[1]}
+            </MainContent>
+            <MainLink onClick={() => handleCarouselLinkClick(element.id)}>
+              {element.link}
+              <img
+                style={{ width: "25px", marginLeft: "10px", marginTop: "1px" }}
+                src={"./assets/mainTitleArrow.svg"}
+                alt="title_arrow"
+              />
+            </MainLink>
+          </div>
+        ))}
+      </Carousel>
+      <CategoryNavigator />
+    </>
   );
 };
 

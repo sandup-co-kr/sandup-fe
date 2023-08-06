@@ -7,6 +7,7 @@ const getColumnMainList = async () => {
       `${BASE_URL}/column/main
     `
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error:", error.message);
