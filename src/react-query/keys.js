@@ -1,4 +1,5 @@
 export const queryKeys = {
   USER_INFO: "user_info",
-  COLUMN_MAIN: "column_main",
+  MAGAZINE_MAIN: "magazine_main",
+  MAGAZINE_LIST: "magazine_list",
 };

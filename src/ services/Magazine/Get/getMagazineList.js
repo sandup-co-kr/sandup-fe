@@ -1,10 +1,10 @@
 import axios from "axios";
 import { BASE_URL } from "../../api";
 
-const getColumnMainList = async () => {
+const getMagazineList = async (count) => {
   try {
     const response = await axios.get(
-      `${BASE_URL}/column/main
+      `${BASE_URL}/magazine?count=${count}
     `
     );
     console.log(response.data);
@@ -14,4 +14,4 @@ const getColumnMainList = async () => {
   }
 };
 
-export default getColumnMainList;
+export default getMagazineList;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { queryKeys } from "../../react-query/keys";
 import { useQuery } from "react-query";
-import getColumnMainList from "../../ services/Main/Get/getColumnMainList";
 import styled from "@emotion/styled";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router";
 import CategoryNavigator from "../../components/Main/CategoryNavigator";
+import getMagazineList from "../../ services/Magazine/Get/getMagazineList";
 
 const MainImage = styled.img`
   width: 100%;
@@ -84,7 +84,7 @@ const Main = () => {
 
   const { isLoading: loadingList } = useQuery(
     [queryKeys.COLUMN_MAIN],
-    () => getColumnMainList(),
+    () => getMagazineList(3),
     {
       onSuccess: (resultData) => {
         setUserMainList(resultData);

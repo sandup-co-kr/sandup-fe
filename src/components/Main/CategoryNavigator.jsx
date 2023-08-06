@@ -3,8 +3,8 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
-import getColumnMainList from "../../ services/Main/Get/getColumnMainList";
 import { Box } from "@mui/material";
+import getMagazineList from "../../ services/Magazine/Get/getMagazineList";
 
 const NavbarContainer = styled.div`
   margin-top: -27px;
@@ -121,8 +121,8 @@ const CategoryNavigator = () => {
   };
 
   const { isLoading: loadingList } = useQuery(
-    [queryKeys.COLUMN_MAIN],
-    () => getColumnMainList(),
+    [queryKeys.MAGAZINE_LIST],
+    () => getMagazineList(),
     {
       onSuccess: (resultData) => {
         setData(resultData);
