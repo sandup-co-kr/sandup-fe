@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
@@ -145,16 +145,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `${process.env.PUBLIC_URL}/assets/lifestyleTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/lifestyleTextUnClicked.svg`
+                      ? `/assets/lifestyleTextClicked.svg`
+                      : `/assets/lifestyleTextUnClicked.svg`
                   }
                   alt="Lifestyle Text"
                 />
                 {activeNav === 0 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar6.svg`}
-                    alt="Line Underbar"
-                  />
+                  <Bar src={`/assets/underbar6.svg`} alt="Line Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -165,16 +162,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/issueTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/issueTextUnClicked.svg`
+                      ? `/assets/issueTextClicked.svg`
+                      : `/assets/issueTextUnClicked.svg`
                   }
                   alt="Issue Text"
                 />
                 {activeNav === 1 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
-                    alt="Issue Underbar"
-                  />
+                  <Bar src={`/assets/underbar2.svg`} alt="Issue Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -185,16 +179,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
+                      ? `/assets/healthTextClicked.svg`
+                      : `/assets/healthTextUnClicked.svg`
                   }
                   alt="Health Text"
                 />
                 {activeNav === 2 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
-                    alt="Health Underbar"
-                  />
+                  <Bar src={`/assets/underbar5.svg`} alt="Health Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -205,16 +196,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/personTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/personTextUnClicked.svg`
+                      ? `/assets/personTextClicked.svg`
+                      : `/assets/personTextUnClicked.svg`
                   }
                   alt="Person Text"
                 />
                 {activeNav === 3 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
-                    alt="Person Underbar"
-                  />
+                  <Bar src={`/assets/underbar2.svg`} alt="Person Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -225,16 +213,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/voteTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/voteTextUnClicked.svg`
+                      ? `/assets/voteTextClicked.svg`
+                      : `/assets/voteTextUnClicked.svg`
                   }
                   alt="Vote Text"
                 />
                 {activeNav === 4 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
-                    alt="Vote Underbar"
-                  />
+                  <Bar src={`/assets/underbar2.svg`} alt="Vote Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
