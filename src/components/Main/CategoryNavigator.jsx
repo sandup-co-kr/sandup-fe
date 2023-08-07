@@ -111,6 +111,18 @@ const CategoryNavigator = () => {
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState(0);
   const [data, setData] = useState([]);
+  let lifestyleStack = 0;
+  let issueStack = 0;
+  let healthStack = 0;
+  let personStack = 0;
+  let voteStack = 0;
+  const categoryObj = {
+    lifestyle: lifestyleStack,
+    issue: issueStack,
+    health: healthStack,
+    person: personStack,
+    vote: voteStack,
+  };
 
   const handleNavClick = (active) => {
     setActiveNav(active);
@@ -227,14 +239,15 @@ const CategoryNavigator = () => {
         </NavbarList>
       </NavbarContainer>
       <Box sx={{ display: "flex", overflowX: "scroll" }}>
-        {data.map((item, index) => {
+        {data.map((item) => {
           let category = "";
           if (activeNav === 0) category = "lifestyle";
           if (activeNav === 1) category = "issue";
           if (activeNav === 2) category = "health";
           if (activeNav === 3) category = "person";
           if (activeNav === 4) category = "vote";
-          if (index < 5 && item.category === category) {
+          if (categoryObj[category] < 6 && item.category === category) {
+            categoryObj[category]++;
             return (
               <CardContainer onClick={() => handleCardClick(item.id)}>
                 <CardImg src={item.main_img} alt={"Card Img"} />
