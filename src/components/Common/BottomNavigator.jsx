@@ -68,7 +68,13 @@ const BottomNavigator = () => {
   const allowedRoutes = ["/", "/magazine", "/community", "/shop", "/mypage"];
   const isRouteAllowed = allowedRoutes.includes(location.pathname);
 
-  const [activeNav, setActiveNav] = useState(0);
+  let defaultActiveNav = 0;
+  if (location.pathname === "/magazine") defaultActiveNav = 1;
+  if (location.pathname === "/community") defaultActiveNav = 2;
+  if (location.pathname === "/shop") defaultActiveNav = 3;
+  if (location.pathname === "/mypage") defaultActiveNav = 4;
+  const [activeNav, setActiveNav] = useState(defaultActiveNav);
+
   const handleNavClick = (active) => {
     setActiveNav(active);
   };
