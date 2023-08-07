@@ -117,7 +117,7 @@ const CategoryNavigator = () => {
   };
 
   const handleCardClick = (id) => {
-    navigate(`/column/${id}`);
+    navigate(`/magazine/${id}`);
   };
 
   const { isLoading: loadingList } = useQuery(

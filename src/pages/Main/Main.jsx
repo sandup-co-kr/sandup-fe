@@ -79,11 +79,11 @@ const Main = () => {
   const [userMainList, setUserMainList] = useState([]);
 
   const handleCarouselLinkClick = (id) => {
-    navigate(`/column/${id}`);
+    navigate(`/magazine/${id}`);
   };
 
   const { isLoading: loadingList } = useQuery(
-    [queryKeys.COLUMN_MAIN],
+    [queryKeys.MAGAZINE_MAIN],
     () => getMagazineList(3),
     {
       onSuccess: (resultData) => {

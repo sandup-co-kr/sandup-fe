@@ -8,7 +8,8 @@ import Magazine from "./pages/Magazine";
 import Community from "./pages/Community";
 import Shop from "./pages/Shop";
 import MyPage from "./pages/MyPage";
-import ColumnDetail from "./pages/ColumnDetail";
+import Detail from "./pages/Magazine/Detail";
+import Upload from "./pages/Magazine/Upload";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
       <Route exact path="/" element={<Main />} />
       <Route exact path="/register" element={<Register />} />
       <Route exact path="/magazine" element={<Magazine />} />
+      <Route exact path="/magazine/:id" element={<Detail />} />
+      <Route exact path="/magazine/upload" element={<Upload />} />
       <Route exact path="/community" element={<Community />} />
       <Route exact path="/shop" element={<Shop />} />
       <Route exact path="/mypage" element={<MyPage />} />
-      <Route exact path="/column/:id" element={<ColumnDetail />} />
     </Routes>
   );
 }
