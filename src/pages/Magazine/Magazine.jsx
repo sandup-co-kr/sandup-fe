@@ -50,7 +50,10 @@ const Magazine = () => {
         <h2>Magazine Page</h2>
       </div>
       <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
-        <UploadImg src={"assets/uploadButton.svg"} alt="Upload Button" />
+        <UploadImg
+          src={"assets/uploadFloatingButton.svg"}
+          alt="Upload Button"
+        />
       </UploadImgFab>
     </>
   );
