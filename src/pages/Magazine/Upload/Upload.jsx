@@ -29,6 +29,9 @@ const UploadButton = styled.img`
 `;
 
 const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fcfcfc;
   height: 100vh;
   width: 100%;
@@ -36,7 +39,6 @@ const MainContainer = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  justify-content: space-around;
 `;
 
 const CategoryContainer = styled.div`
@@ -104,6 +106,7 @@ const TitleSelect = styled(Select)`
 `;
 
 const ImageContainer = styled.div`
+  margin-left: 39px;
   margin-top: 20px;
 `;
 
@@ -113,13 +116,13 @@ const MainImgUpload = styled.input`
 `;
 
 const SeparateLine = styled.img`
-  margin-left: 24px;
   margin-top: 17px;
+  width: 85%;
 `;
 
 const ContentText = styled.p`
   margin-top: 19px;
-  margin-left: 24px;
+  margin-left: -278px;
   color: var(--unnamed, #575757);
   leading-trim: both;
   text-edge: cap;
@@ -132,8 +135,8 @@ const ContentText = styled.p`
 
 const ContentInput = styled.input`
   margin-top: -8px;
-  margin-left: 23px;
-  width: 313px;
+  margin-left: 0px;
+  width: 293px;
   height: 41px;
   border-radius: 3px;
   border: 1px solid var(--unnamed, #a3a3a3);
@@ -185,6 +188,10 @@ const Upload = () => {
     setFile(URL?.createObjectURL(e.target.files[0]));
   };
 
+  const handleUpload = () => {
+    alert("업로드 되었습니다.");
+  };
+
   return (
     <>
       <TopContainer>
@@ -194,7 +201,11 @@ const Upload = () => {
           onClick={handelGoBack}
         />
         <Title>칼럼 업로드</Title>
-        <UploadButton src={"/assets/uploadButton.svg"} alt="Upload Button" />
+        <UploadButton
+          onClick={handleUpload}
+          src={"/assets/uploadButton.svg"}
+          alt="Upload Button"
+        />
       </TopContainer>
       <MainContainer>
         <TitleContainer>

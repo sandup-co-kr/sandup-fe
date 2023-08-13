@@ -22,7 +22,7 @@ const UploadImg = styled.img`
 
 const Magazine = () => {
   const phone = localStorage.getItem("phone");
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
 
   const handelUploadButtonClick = () => {
     window.location.href = "/magazine/upload";
@@ -49,12 +49,16 @@ const Magazine = () => {
       <div>
         <h2>Magazine Page</h2>
       </div>
-      <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
-        <UploadImg
-          src={"assets/uploadFloatingButton.svg"}
-          alt="Upload Button"
-        />
-      </UploadImgFab>
+      {userInfo?.admin ? (
+        <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
+          <UploadImg
+            src={"assets/uploadFloatingButton.svg"}
+            alt="Upload Button"
+          />
+        </UploadImgFab>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
