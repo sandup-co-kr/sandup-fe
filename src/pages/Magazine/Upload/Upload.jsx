@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Select, { components } from "react-select";
+import usePostMagazineMutation from "../../../hooks/Magazine/usePostMagazineMutation";
 
 const TopContainer = styled.div`
   height: 73px;
@@ -79,7 +80,6 @@ const TitleSelect = styled(Select)`
     font-size: 13px;
     font-weight: 400;
     line-height: 150%;
-    margin-top: -5px;
   }
   .css-1dimb5e-singleValue {
     color: var(--unnamed, #0a81ce) !important;
@@ -87,7 +87,6 @@ const TitleSelect = styled(Select)`
     font-size: 13px;
     font-weight: 400;
     line-height: 150%;
-    margin-top: -5px;
   }
   .css-1u9des2-indicatorSeparator {
     display: none;
@@ -99,9 +98,9 @@ const TitleSelect = styled(Select)`
     font-weight: 400;
   }
   .css-qbdosj-Input {
+    display: none;
     height: 26px;
     min-height: 0px !important;
-    margin-top: -3px;
   }
 `;
 
@@ -123,6 +122,19 @@ const SeparateLine = styled.img`
 const ContentText = styled.p`
   margin-top: 19px;
   margin-left: -278px;
+  color: var(--unnamed, #575757);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+`;
+
+const SubTitleText = styled.p`
+  margin-top: 19px;
+  margin-left: -263px;
   color: var(--unnamed, #575757);
   leading-trim: both;
   text-edge: cap;
@@ -167,12 +179,13 @@ const GoodsInput = styled.input`
 
 const Upload = () => {
   const [file, setFile] = useState(null);
+  const postMagazineMutation = usePostMagazineMutation();
 
   const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
         <img
-          style={{ marginTop: "-6px" }}
+          style={{ marginTop: "-2px" }}
           src="/assets/selectArrow.svg"
           alt="Select Arrow"
         />
@@ -181,19 +194,52 @@ const Upload = () => {
   };
 
   const handelGoBack = () => {
-    window.history.back();
+    window.location.href = "/magazine";
   };
 
   const handleImgChange = (e) => {
     setFile(URL?.createObjectURL(e.target.files[0]));
   };
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    console.log(e);
+    if (e.target.title.value === "") {
+      alert("제목을 입력해주세요.");
+      return;
+    }
+    if (e.target.subTitle.value === "") {
+      alert("부제목을 입력해주세요.");
+      return;
+    }
+    if (e.target.linkText.value === "") {
+      alert("링크 텍스트를 입력해주세요.");
+      return;
+    }
+    if (e.target.category.value === "") {
+      alert("카테고리를 선택해주세요.");
+      return;
+    }
+    if (e.target.content.value === "") {
+      alert("본문 url을 입력해주세요.");
+      return;
+    }
+    if (document.getElementById("fileInput").files[0] === undefined) {
+      alert("이미지를 업로드해주세요.");
+      return;
+    }
+    const formData = new FormData();
+    formData.append("title", e.target.title.value);
+    formData.append("category", e.target.category.value);
+    formData.append("subTitle", e.target.subTitle.value);
+    formData.append("linkText", e.target.linkText.value);
+    formData.append("content", e.target.content.value);
+    formData.append("img", document.getElementById("fileInput").files[0]);
+    postMagazineMutation.mutate(formData);
     alert("업로드 되었습니다.");
   };
 
   return (
-    <>
+    <form onSubmit={handleUpload}>
       <TopContainer>
         <GoBackButton
           src={"/assets/goBackButton.svg"}
@@ -201,24 +247,24 @@ const Upload = () => {
           onClick={handelGoBack}
         />
         <Title>칼럼 업로드</Title>
-        <UploadButton
-          onClick={handleUpload}
-          src={"/assets/uploadButton.svg"}
-          alt="Upload Button"
-        />
+        <label for="submit">
+          <UploadButton src={"/assets/uploadButton.svg"} alt="Upload Button" />
+          <input type="submit" id="submit" style={{ display: "none" }} />
+        </label>
       </TopContainer>
       <MainContainer>
         <TitleContainer>
           <CategoryContainer>
-            <TitleInput placeholder="제목을 입력하세요." />
+            <TitleInput name="title" placeholder="제목을 입력하세요." />
             <TitleSelect
+              name="category"
               placeholder="카테고리 선택"
               components={{ DropdownIndicator }}
               options={[
-                { value: "0", label: "라이프스타일" },
-                { value: "1", label: "이슈" },
-                { value: "2", label: "건강/뷰티" },
-                { value: "3", label: "인물" },
+                { value: "lifestyle", label: "라이프스타일" },
+                { value: "issue", label: "이슈" },
+                { value: "health", label: "건강/뷰티" },
+                { value: "person", label: "인물" },
               ]}
             />
           </CategoryContainer>
@@ -241,17 +287,25 @@ const Upload = () => {
             <MainImgUpload
               id="fileInput"
               type="file"
+              name="img"
               onChange={handleImgChange}
             />
           </ImageContainer>
         </TitleContainer>
         <SeparateLine src={"/assets/separateLine.svg"} />
+        <SubTitleText>부제목</SubTitleText>
+        <ContentInput name="subTitle" placeholder="부제목을 입력해주세요" />
+        <ContentText>링크</ContentText>
+        <ContentInput name="linkText" placeholder="링크텍스트를 입력해주세요" />
         <ContentText>본문</ContentText>
-        <ContentInput placeholder="네이버 글 URL을 입력해주세요" />
+        <ContentInput
+          name="content"
+          placeholder="네이버 글 URL을 입력해주세요"
+        />
         {/* <GoodsText>상품 등록</GoodsText>
         <GoodsInput placeholder="태그할 상품" /> */}
       </MainContainer>
-    </>
+    </form>
   );
 };
 
