@@ -236,6 +236,7 @@ const Upload = () => {
     formData.append("img", document.getElementById("fileInput").files[0]);
     postMagazineMutation.mutate(formData);
     alert("업로드 되었습니다.");
+    window.location.href = "/magazine";
   };
 
   return (
