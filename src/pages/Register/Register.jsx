@@ -3,29 +3,20 @@ import { Button, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import handleGoBack from "../../utils/Common/handleGoBack";
 
-// TODO: Need to fix design
 const GoBackButton = styled(IconButton)`
-  background-image: url("${process.env.PUBLIC_URL}/assets/goBackButton.png");
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  isolation: isolate;
-
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  left: 10px;
-  top: 51px;
+  margin-left: 22px;
+  margin-top: 34px;
+  background: url("${process.env.PUBLIC_URL}/assets/goBackButtonGray.svg")
+    no-repeat center/cover;
+  width: 24px;
+  height: 24px;
 `;
 
 const Title = styled(Typography)`
-  position: absolute;
-  width: 190px;
+  width: 185px;
   height: 55px;
-  left: calc(50% - 185px / 2 - 59.5px);
-  top: 114px;
+  margin-left: 28px;
+  margin-top: 27px;
 
   font-family: "NanumSquare_ac";
   font-style: normal;
@@ -39,10 +30,10 @@ const Title = styled(Typography)`
 `;
 
 const SubTitle = styled(Typography)`
-  position: absolute;
   width: 248px;
   height: 33px;
-  left: calc(50% - 248px / 2 - 28px);
+  margin-left: 28px;
+  margin-top: 38px;
   top: 207px;
 
   font-family: "NanumSquare_ac";
@@ -63,19 +54,19 @@ const CheckIcon = styled.img`
 
 const CheckButton1 = styled(Button)(() => ({
   position: "absolute",
-  left: "28px",
+  left: `calc(50% - 280px / 2 - 31.5px)`,
   top: "289px",
 }));
 
 const CheckButton2 = styled(Button)(() => ({
   position: "absolute",
-  left: "28px",
+  left: `calc(50% - 280px / 2 - 31.5px)`,
   top: "334px",
 }));
 
 const CheckButton3 = styled(Button)(() => ({
   position: "absolute",
-  left: "49px",
+  left: `calc(50% - 240px / 2 - 31.5px)`,
   top: "402px",
 }));
 
@@ -230,8 +221,8 @@ const AgreeButton = styled(Button)`
   position: absolute;
   width: 308px;
   height: 51px;
-  left: 28px;
-  top: 383px;
+  left: calc(50% - 230px / 2 - 31.5px);
+  top: 389px;
 
   background: #f4f4f6;
   border-radius: 8px;
@@ -269,8 +260,8 @@ const SubmitButton = styled(Button)`
   position: absolute;
   width: 308px;
   height: 51px;
-  left: 28px;
-  top: 671px;
+  left: calc(50% - 300px / 2 + 1.5px);
+  top: 677px;
 
   background: #e7e7e7;
   border-radius: 25.5px;
@@ -327,6 +318,7 @@ function Register() {
       <GoBackButton onClick={handleGoBack} />
       <Title>샌드업에 오신 것을 환영합니다</Title>
       <SubTitle>샌드업을 이용하시기 위해서는 약관동의가 필요합니다.</SubTitle>
+
       <CheckButton1 onClick={handleCheckButton1Click}>
         <CheckIcon
           src={
