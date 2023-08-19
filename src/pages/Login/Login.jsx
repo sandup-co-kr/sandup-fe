@@ -16,8 +16,6 @@ const LogoImage = styled.img`
   top: 152px;
 `;
 
-// Need to fix design
-
 const IDInput = styled.input`
   box-sizing: border-box;
 
