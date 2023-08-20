@@ -135,6 +135,7 @@ const CommunityCard = styled.div`
   display: flex;
   justify-content: space-between;
   height: 105.5px;
+  margin-top: 8.5px;
 `;
 
 const CommunityCardTitleContainer = styled.div`
@@ -162,7 +163,7 @@ const CommunityCardTitle = styled.p`
 `;
 
 const CommunityCardAuthor = styled.p`
-  margin-top: 3px;
+  margin-top: 0px;
   color: var(--unnamed, #575757);
   leading-trim: both;
   text-edge: cap;
@@ -174,7 +175,7 @@ const CommunityCardAuthor = styled.p`
 `;
 
 const CommunityCardDate = styled.p`
-  margin-top: 3px;
+  margin-top: 0px;
   margin-left: 10px;
   color: var(--unnamed, #575757);
   leading-trim: both;
@@ -230,6 +231,14 @@ const Main = () => {
 
   const handleCarouselLinkClick = (id) => {
     navigate(`/magazine/${id}`);
+  };
+
+  const handleCommunityMoreClick = () => {
+    window.location.href = "/community";
+  };
+
+  const handleCommunityCardClick = (id) => {
+    navigate(`/community/${id}`);
   };
 
   const { isLoading: loadingMagazineList } = useQuery(
@@ -296,18 +305,20 @@ const Main = () => {
             <CommunityTitle>소통하고 포인트 받아요</CommunityTitle>
             <CommunitySubTitle>가장 많이 소통한 글</CommunitySubTitle>
           </CommunityTitleContainer>
-          <CommunityMore>더보기</CommunityMore>
+          <CommunityMore onClick={handleCommunityMoreClick}>
+            더보기
+          </CommunityMore>
         </CommunityHeader>
         {communityList?.map((element, index) => (
           <>
             {index !== 0 && (
               <img
-                style={{ marginTop: "-15px" }}
+                style={{ padding: "0px 20px" }}
                 src="assets/separateLine.svg"
                 alt="Separate Line"
               />
             )}
-            <CommunityCard>
+            <CommunityCard onClick={() => handleCommunityCardClick(element.id)}>
               <CommunityCardTitleContainer>
                 <CommunityCardTitle>{element.title}</CommunityCardTitle>
                 <CommunityCardFlexContainer>
