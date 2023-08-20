@@ -9,6 +9,7 @@ import CategoryNavigator from "../../components/Main/CategoryNavigator";
 import getMagazineList from "../../ services/Magazine/Get/getMagazineList";
 import getCommunityList from "../../ services/Community/Get/getCommunityList";
 import Footer from "../../components/Common/Footer";
+import getShopList from "../../ services/Shop/Get/getShopList";
 
 const MainImage = styled.img`
   width: 100%;
@@ -225,6 +226,97 @@ const BlankDiv = styled.div`
   margin-top: -0px;
 `;
 
+const ShopContainer = styled.div`
+  height: 525px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ShopCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+`;
+
+const ShopCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+  width: 156px;
+`;
+
+const ShopCardImg = styled.img`
+  width: 156px;
+  height: 156px;
+`;
+
+const ShopCardName = styled.p`
+  color: var(--unnamed, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 22.5px */
+`;
+
+const ShopCardSeller = styled.p`
+  margin-top: -15px;
+
+  color: var(--unnamed, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+`;
+
+const ShopCardPrice = styled.p`
+  margin-top: -15px;
+
+  color: var(--unnamed, #a3a3a3);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+  text-decoration: line-through;
+`;
+
+const ShopCardDiscountContainer = styled.p`\
+  display: flex;
+`;
+
+const ShopCardDiscount = styled.p`
+  margin-top: -30px;
+  color: var(--unnamed, #0a81ce);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 150%; /* 27px */
+`;
+
+const ShopCardDiscountedPrice = styled.p`
+  margin-top: -30px;
+  margin-left: 9px;
+
+  color: var(--active, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 27px */
+`;
 const Main = () => {
   const navigate = useNavigate();
   const [userMainList, setUserMainList] = useState([]);
@@ -239,6 +331,14 @@ const Main = () => {
 
   const handleCommunityCardClick = (id) => {
     navigate(`/community/${id}`);
+  };
+
+  const handleShopMoreClick = () => {
+    window.location.href = "/shop";
+  };
+
+  const handleShopCardClick = (id) => {
+    navigate(`/shop/${id}`);
   };
 
   const { isLoading: loadingMagazineList } = useQuery(
@@ -260,7 +360,19 @@ const Main = () => {
     }
   );
 
-  if ((loadingMagazineList && !userMainList[0]) || loadingCommunityList) {
+  const { data: shopList, isLoading: loadingShopList } = useQuery(
+    [queryKeys.SHOP_MAIN],
+    () => getShopList(4),
+    {
+      staleTime: 0,
+    }
+  );
+
+  if (
+    (loadingMagazineList && !userMainList[0]) ||
+    loadingCommunityList ||
+    loadingShopList
+  ) {
     return <h1>Loading...</h1>;
   }
   return (
@@ -362,6 +474,33 @@ const Main = () => {
         ))}
       </CommunityContainer>
       <BlankDiv />
+      <ShopContainer>
+        <CommunityHeader>
+          <CommunityTitleContainer>
+            <CommunityTitle>이 상품은 뭐지?</CommunityTitle>
+            <CommunitySubTitle>
+              칼럼에 등장한 상품들을 만나보세요
+            </CommunitySubTitle>
+          </CommunityTitleContainer>
+          <CommunityMore onClick={handleShopMoreClick}>더보기</CommunityMore>
+        </CommunityHeader>
+        <ShopCardContainer>
+          {shopList?.map((element) => (
+            <ShopCard onClick={() => handleShopCardClick(element.id)}>
+              <ShopCardImg src={element.img} />
+              <ShopCardName>{element.name}</ShopCardName>
+              <ShopCardSeller>{element.seller}</ShopCardSeller>
+              <ShopCardPrice>{element.price}원</ShopCardPrice>
+              <ShopCardDiscountContainer>
+                <ShopCardDiscount>{element.discount}%</ShopCardDiscount>
+                <ShopCardDiscountedPrice>
+                  {(element.price * (100 - element.discount)) / 100}원
+                </ShopCardDiscountedPrice>
+              </ShopCardDiscountContainer>
+            </ShopCard>
+          ))}
+        </ShopCardContainer>
+      </ShopContainer>
       <Footer />
     </>
   );
