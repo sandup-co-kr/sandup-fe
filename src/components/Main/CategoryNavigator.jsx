@@ -104,7 +104,7 @@ const BlankDiv = styled.div`
   background: #f5f5f5;
   width: 100%;
   height: 8px;
-  margin-top: 35px;
+  margin-top: 28px;
 `;
 
 const CategoryNavigator = () => {
@@ -276,7 +276,6 @@ const CategoryNavigator = () => {
         })}
       </Box>
       <BlankDiv />
-      <div style={{ height: "100px" }}></div>
     </>
   );
 };

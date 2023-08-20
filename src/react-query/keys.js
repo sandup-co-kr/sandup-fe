@@ -5,4 +5,5 @@ export const queryKeys = {
   MAGAZINE_DETAIL: "magazine_detail",
   CHECK_ID_DUPLICATE: "check_id_duplicate",
   CHECK_PHONE_DUPLICATE: "check_phone_duplicate",
+  COMMUNITY_MAIN: "community_main",
 };
