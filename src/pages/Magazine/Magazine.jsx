@@ -4,6 +4,7 @@ import { queryKeys } from "../../react-query/keys";
 import getUserInfo from "../../ services/Common/Get/getUserInfo";
 import { Fab } from "@mui/material";
 import styled from "@emotion/styled";
+import CategoryNavigator from "../../components/Magazine/CategoryNavigator";
 
 const UploadImgFab = styled(Fab)`
   width: 119px;
@@ -46,9 +47,7 @@ const Magazine = () => {
   }
   return (
     <>
-      <div>
-        <h2>Magazine Page</h2>
-      </div>
+      <CategoryNavigator />
       {userInfo?.admin ? (
         <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
           <UploadImg

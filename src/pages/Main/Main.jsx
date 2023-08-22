@@ -447,7 +447,7 @@ const Main = () => {
                       alt="heart"
                     />
                     <CommunityCardLikeComment>
-                      {element.like}
+                      {element.likes}
                     </CommunityCardLikeComment>
                   </HeartContainer>
                   <CommentContainer>

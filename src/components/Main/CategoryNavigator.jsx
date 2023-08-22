@@ -265,7 +265,7 @@ const CategoryNavigator = () => {
                 <SubContainer>
                   <HeartContainer>
                     <img src="assets/heart.svg" alt="Heart Icon" />
-                    <Like>{item.like}</Like>
+                    <Like>{item.likes}</Like>
                   </HeartContainer>
                   <Date>{item.date.split("T")[0].replaceAll("-", ".")}</Date>
                 </SubContainer>
