@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
 import { Box } from "@mui/material";
-import getMagazineList from "../../ services/Magazine/Get/getMagazineList";
-import getMagazineListRecommend from "../../ services/Magazine/Get/getMagazineListRecommend";
+import getMagazineList from "../../services/Magazine/Get/getMagazineList";
+import getMagazineListRecommend from "../../services/Magazine/Get/getMagazineListRecommend";
 
 const NavbarContainer = styled.div`
   margin-top: 30px;

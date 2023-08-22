@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import postMagazine from "../../ services/Magazine/Post/postMagazine";
+import postMagazine from "../../services/Magazine/Post/postMagazine";
 
 const usePostMagazineMutation = () =>
   useMutation(postMagazine, {

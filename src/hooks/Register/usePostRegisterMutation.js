@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import postRegister from "../../ services/Register/Post/postRegister";
+import postRegister from "../../services/Register/Post/postRegister";
 
 const usePostRegisterMutation = () =>
   useMutation(postRegister, {

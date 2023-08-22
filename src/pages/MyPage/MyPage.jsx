@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
-import getUserInfo from "../../ services/Common/Get/getUserInfo";
+import getUserInfo from "../../services/Common/Get/getUserInfo";
 
 function MyPage() {
   const phone = localStorage.getItem("phone");

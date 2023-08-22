@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import login from "../../ services/Login/Get/login";
+import login from "../../services/Login/Get/login";
 
 const useLoginMutation = () =>
   useMutation(login, {

@@ -6,10 +6,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router";
 import CategoryNavigator from "../../components/Main/CategoryNavigator";
-import getMagazineList from "../../ services/Magazine/Get/getMagazineList";
-import getCommunityList from "../../ services/Community/Get/getCommunityList";
+import getMagazineList from "../../services/Magazine/Get/getMagazineList";
+import getCommunityList from "../../services/Community/Get/getCommunityList";
 import Footer from "../../components/Common/Footer";
-import getShopList from "../../ services/Shop/Get/getShopList";
+import getShopList from "../../services/Shop/Get/getShopList";
 
 const MainImage = styled.img`
   width: 100%;

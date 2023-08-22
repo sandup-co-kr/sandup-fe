@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
-import getUserInfo from "../../ services/Common/Get/getUserInfo";
+import getUserInfo from "../../services/Common/Get/getUserInfo";
 import { Fab } from "@mui/material";
 import styled from "@emotion/styled";
 import CategoryNavigator from "../../components/Magazine/CategoryNavigator";

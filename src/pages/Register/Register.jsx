@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 import { Button, IconButton, Select, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { queryKeys } from "../../react-query/keys";
-import checkIdDuplicate from "../../ services/Register/Get/checkIdDuplicate";
+import checkIdDuplicate from "../../services/Register/Get/checkIdDuplicate";
 import { useQuery } from "react-query";
-import checkPhoneDuplicate from "../../ services/Register/Get/checkPhoneDuplicate";
+import checkPhoneDuplicate from "../../services/Register/Get/checkPhoneDuplicate";
 import usePostRegisterMutation from "../../hooks/Register/usePostRegisterMutation";
 
 const GoBackButton = styled(IconButton)`

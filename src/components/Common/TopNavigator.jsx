@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import { queryKeys } from "../../react-query/keys";
-import getUserInfo from "../../ services/Common/Get/getUserInfo";
+import getUserInfo from "../../services/Common/Get/getUserInfo";
 import { Typography } from "@mui/material";
 
 const TopNavigatorContainer = styled.div`
