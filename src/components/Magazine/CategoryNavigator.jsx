@@ -6,6 +6,7 @@ import { queryKeys } from "../../react-query/keys";
 import { Box } from "@mui/material";
 import getMagazineList from "../../services/Magazine/Get/getMagazineList";
 import getMagazineListRecommend from "../../services/Magazine/Get/getMagazineListRecommend";
+import Footer from "../Common/Footer";
 
 const NavbarContainer = styled.div`
   margin-top: 30px;
@@ -383,7 +384,17 @@ const CategoryNavigator = () => {
           </NavbarListItem>
         </NavbarList>
       </NavbarContainer>
-      <RecommendText>관심사 추천 글</RecommendText>
+      {activeNav === 0 ? (
+        <RecommendText>관심사 추천 글</RecommendText>
+      ) : activeNav === 1 ? (
+        <RecommendText>라이프스타일 맞춤 글</RecommendText>
+      ) : activeNav === 2 ? (
+        <RecommendText>이슈 맞춤 글</RecommendText>
+      ) : activeNav === 3 ? (
+        <RecommendText>건강/뷰티 맞춤 글</RecommendText>
+      ) : (
+        <RecommendText>인물 맞춤 글</RecommendText>
+      )}
       <Box sx={{ display: "flex", overflowX: "scroll" }}>
         {recommendList.map((item) => {
           let category = "";
@@ -481,65 +492,129 @@ const CategoryNavigator = () => {
       </Box>
       <BlankDiv />
       <RecommendText>이런 글은 어떠세요?</RecommendText>
-      <SmallCardContainer>
-        {data.map((item) => {
-          let categoryKor = "";
-          let categoryColor = "";
-          if (item.category === "lifestyle") {
-            categoryKor = "라이프스타일";
-            categoryColor = "#0A81CE";
-          }
-          if (item.category === "issue") {
-            categoryKor = "이슈";
-            categoryColor = "#00BD57";
-          }
-          if (item.category === "health") {
-            categoryKor = "건강/뷰티";
-            categoryColor = "#EE87FF";
-          }
-          if (item.category === "person") {
-            categoryKor = "인물";
-            categoryColor = "#E7B400";
-          }
-          if (item.category === "vote") {
-            categoryKor = "투표";
-            categoryColor = "#FF0000";
-          }
-          return (
-            <SmallCard onClick={() => handleCardClick(item.id)}>
-              <SmallCardImg src={item.main_img} alt={"Card Img"} />
-              <SmallCardCategory style={{ color: categoryColor }}>
-                {categoryKor}
-              </SmallCardCategory>
-              <SmallCardTitle>
-                {" "}
-                {item.title.length > 11
-                  ? `${item.title.slice(0, 11)}...`
-                  : item.title}
-              </SmallCardTitle>
-              <SmallCardSubTitle>{item.subtitle}</SmallCardSubTitle>
-              <SmallSubContainer>
-                <SmallCardHeartContainer>
-                  <img
-                    style={{
-                      marginTop: "-2.5px",
-                      width: "13px",
-                      height: "12px",
-                    }}
-                    src="assets/heartFill.svg"
-                    alt="Heart Icon"
-                  />
-                  <SmallCardLike>{item.likes}</SmallCardLike>
-                </SmallCardHeartContainer>
-                <SmallCardDate>
-                  {item.date.split("T")[0].replaceAll("-", ".")}
-                </SmallCardDate>
-              </SmallSubContainer>
-            </SmallCard>
-          );
-        })}
-      </SmallCardContainer>
-      )
+      {activeNav === 0 ? (
+        <SmallCardContainer>
+          {data.map((item) => {
+            let categoryKor = "";
+            let categoryColor = "";
+            if (item.category === "lifestyle") {
+              categoryKor = "라이프스타일";
+              categoryColor = "#0A81CE";
+            }
+            if (item.category === "issue") {
+              categoryKor = "이슈";
+              categoryColor = "#00BD57";
+            }
+            if (item.category === "health") {
+              categoryKor = "건강/뷰티";
+              categoryColor = "#EE87FF";
+            }
+            if (item.category === "person") {
+              categoryKor = "인물";
+              categoryColor = "#E7B400";
+            }
+            if (item.category === "vote") {
+              categoryKor = "투표";
+              categoryColor = "#FF0000";
+            }
+            return (
+              <SmallCard onClick={() => handleCardClick(item.id)}>
+                <SmallCardImg src={item.main_img} alt={"Card Img"} />
+                <SmallCardCategory style={{ color: categoryColor }}>
+                  {categoryKor}
+                </SmallCardCategory>
+                <SmallCardTitle>
+                  {" "}
+                  {item.title.length > 11
+                    ? `${item.title.slice(0, 11)}...`
+                    : item.title}
+                </SmallCardTitle>
+                <SmallCardSubTitle>{item.subtitle}</SmallCardSubTitle>
+                <SmallSubContainer>
+                  <SmallCardHeartContainer>
+                    <img
+                      style={{
+                        marginTop: "-2.5px",
+                        width: "13px",
+                        height: "12px",
+                      }}
+                      src="assets/heartFill.svg"
+                      alt="Heart Icon"
+                    />
+                    <SmallCardLike>{item.likes}</SmallCardLike>
+                  </SmallCardHeartContainer>
+                  <SmallCardDate>
+                    {item.date.split("T")[0].replaceAll("-", ".")}
+                  </SmallCardDate>
+                </SmallSubContainer>
+              </SmallCard>
+            );
+          })}
+        </SmallCardContainer>
+      ) : (
+        <SmallCardContainer>
+          {data.map((item) => {
+            let categoryCount = 0;
+            let categoryKor = "";
+            let categoryColor = "";
+            if (item.category === "lifestyle") {
+              categoryCount = 1;
+              categoryKor = "라이프스타일";
+              categoryColor = "#0A81CE";
+            }
+            if (item.category === "issue") {
+              categoryCount = 2;
+              categoryKor = "이슈";
+              categoryColor = "#00BD57";
+            }
+            if (item.category === "health") {
+              categoryCount = 3;
+              categoryKor = "건강/뷰티";
+              categoryColor = "#EE87FF";
+            }
+            if (item.category === "person") {
+              categoryCount = 4;
+              categoryKor = "인물";
+              categoryColor = "#E7B400";
+            }
+            if (categoryCount === activeNav) {
+              return (
+                <SmallCard onClick={() => handleCardClick(item.id)}>
+                  <SmallCardImg src={item.main_img} alt={"Card Img"} />
+                  <SmallCardCategory style={{ color: categoryColor }}>
+                    {categoryKor}
+                  </SmallCardCategory>
+                  <SmallCardTitle>
+                    {" "}
+                    {item.title.length > 11
+                      ? `${item.title.slice(0, 11)}...`
+                      : item.title}
+                  </SmallCardTitle>
+                  <SmallCardSubTitle>{item.subtitle}</SmallCardSubTitle>
+                  <SmallSubContainer>
+                    <SmallCardHeartContainer>
+                      <img
+                        style={{
+                          marginTop: "-2.5px",
+                          width: "13px",
+                          height: "12px",
+                        }}
+                        src="assets/heartFill.svg"
+                        alt="Heart Icon"
+                      />
+                      <SmallCardLike>{item.likes}</SmallCardLike>
+                    </SmallCardHeartContainer>
+                    <SmallCardDate>
+                      {item.date.split("T")[0].replaceAll("-", ".")}
+                    </SmallCardDate>
+                  </SmallSubContainer>
+                </SmallCard>
+              );
+            }
+          })}
+        </SmallCardContainer>
+      )}
+      <Footer />
     </>
   );
 };
