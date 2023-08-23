@@ -9,4 +9,5 @@ export const queryKeys = {
   SHOP_MAIN: "shop_main",
   COMMUNITY_LIST: "community_list",
   COMMUNITY_DETAIL: "community_detail",
+  SHOP_LIST: "shop_list",
 };

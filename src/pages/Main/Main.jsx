@@ -490,11 +490,15 @@ const Main = () => {
               <ShopCardImg src={element.img} />
               <ShopCardName>{element.name}</ShopCardName>
               <ShopCardSeller>{element.seller}</ShopCardSeller>
-              <ShopCardPrice>{element.price}원</ShopCardPrice>
+              <ShopCardPrice>{element.price.toLocaleString()}원</ShopCardPrice>
               <ShopCardDiscountContainer>
                 <ShopCardDiscount>{element.discount}%</ShopCardDiscount>
                 <ShopCardDiscountedPrice>
-                  {(element.price * (100 - element.discount)) / 100}원
+                  {(
+                    (element.price * (100 - element.discount)) /
+                    100
+                  ).toLocaleString()}
+                  원
                 </ShopCardDiscountedPrice>
               </ShopCardDiscountContainer>
             </ShopCard>

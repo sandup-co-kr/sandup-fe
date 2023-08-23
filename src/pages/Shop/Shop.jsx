@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
 import getUserInfo from "../../services/Common/Get/getUserInfo";
+import CategoryNavigator from "../../components/Shop/CategoryNavigator";
 
 function Shop() {
   const phone = localStorage.getItem("phone");
@@ -24,9 +25,9 @@ function Shop() {
     return <h1>Loading...</h1>;
   }
   return (
-    <div>
-      <h2>Shop Page</h2>
-    </div>
+    <>
+      <CategoryNavigator />
+    </>
   );
 }
 
