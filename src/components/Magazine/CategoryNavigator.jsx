@@ -395,7 +395,7 @@ const CategoryNavigator = () => {
       ) : (
         <RecommendText>인물 맞춤 글</RecommendText>
       )}
-      <Box sx={{ display: "flex", overflowX: "scroll" }}>
+      <Box sx={{ height: "310px", display: "flex", overflowX: "scroll" }}>
         {recommendList.map((item) => {
           let category = "";
           let categoryKor = "";
