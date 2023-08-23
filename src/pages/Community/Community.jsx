@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
 import getUserInfo from "../../services/Common/Get/getUserInfo";
+import CategoryNavigator from "../../components/Community/CategoryNavigator";
 
 function Community() {
   const phone = localStorage.getItem("phone");
@@ -24,9 +25,9 @@ function Community() {
     return <h1>Loading...</h1>;
   }
   return (
-    <div>
-      <h2>Community Page</h2>
-    </div>
+    <>
+      <CategoryNavigator />
+    </>
   );
 }
 

@@ -7,4 +7,6 @@ export const queryKeys = {
   CHECK_PHONE_DUPLICATE: "check_phone_duplicate",
   COMMUNITY_MAIN: "community_main",
   SHOP_MAIN: "shop_main",
+  COMMUNITY_LIST: "community_list",
+  COMMUNITY_DETAIL: "community_detail",
 };

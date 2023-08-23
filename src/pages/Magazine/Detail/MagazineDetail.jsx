@@ -67,7 +67,7 @@ const Date = styled.p`
   line-height: 150%; /* 19.5px */
 `;
 
-const Detail = () => {
+const MagazineDetail = () => {
   const magazineId = window.location.href.split("/")[4];
   const { data, isLoading } = useQuery(
     [queryKeys.MAGAZINE_DETAIL],
@@ -122,7 +122,7 @@ const Detail = () => {
           src="/assets/goBackButtonWhite.svg"
           onClick={handleGoBack}
         />
-        <Thumbnail src={data.main_img} />
+        <Thumbnail src={data.main_img || "/assets/imgUploadButton.svg"} />
         <Category>{category}</Category>
         <Title>{data.title}</Title>
         <Date>{data.date.replaceAll("-", ".").split("T")[0]}</Date>
@@ -132,4 +132,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default MagazineDetail;

@@ -254,6 +254,7 @@ const CategoryNavigator = () => {
   let issueStack = 0;
   let healthStack = 0;
   let personStack = 0;
+  let categoryCount = 0;
   const categoryObj = {
     recommend: recommendStack,
     lifestyle: lifestyleStack,
@@ -441,7 +442,7 @@ const CategoryNavigator = () => {
                 </CardTitle>
                 <CardSubTitle>
                   {" "}
-                  {item.subtitle.length > 26
+                  {item.subtitle?.length > 26
                     ? `${item.subtitle.slice(0, 26)}...`
                     : item.subtitle}
                 </CardSubTitle>
@@ -554,7 +555,6 @@ const CategoryNavigator = () => {
       ) : (
         <SmallCardContainer>
           {data.map((item) => {
-            let categoryCount = 0;
             let categoryKor = "";
             let categoryColor = "";
             if (item.category === "lifestyle") {
@@ -611,6 +611,7 @@ const CategoryNavigator = () => {
                 </SmallCard>
               );
             }
+            return null;
           })}
         </SmallCardContainer>
       )}
