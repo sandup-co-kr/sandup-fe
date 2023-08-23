@@ -16,8 +16,10 @@ const ThumbnailContainer = styled.div`
 `;
 
 const GoBackButton = styled.img`
-  width: 24px;
-  height: 24px;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  margin-top: 20px;
 `;
 
 const Thumbnail = styled.img`
@@ -116,7 +118,10 @@ const Detail = () => {
   return (
     <>
       <ThumbnailContainer>
-        <GoBackButton src="/assets/goBackButton.svg" onClick={handleGoBack} />
+        <GoBackButton
+          src="/assets/goBackButtonWhite.svg"
+          onClick={handleGoBack}
+        />
         <Thumbnail src={data.main_img} />
         <Category>{category}</Category>
         <Title>{data.title}</Title>
