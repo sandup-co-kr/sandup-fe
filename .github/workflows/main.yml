@@ -1,0 +1,68 @@
+name: React CICD for test server
+
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    types:
+      - closed
+  workflow_dispatch:
+
+
+jobs:
+  build-test:
+    if: ${{ github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Take new version code
+      uses: actions/checkout@v3
+    
+    - name: Set Up node 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Generate .env file
+      run: |
+        echo "REACT_APP_BASE_URL=$REACT_APP_BASE_URL">>.env
+      env: 
+        REACT_APP_BASE_URL: 'http://127.0.0.1:3333'
+
+    - name: React build
+      run: npm run build --if-present
+
+    - name: Create zip file
+      run: zip -r react-from-action.zip 
+        ./build 
+        ./appspec.yml
+      shell: bash
+    
+    - name: AWS configure credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+        aws-region: ap-northeast-2
+    
+    - name: Upload to AWS S3 
+      run: aws s3 cp 
+        --region ap-northeast-2 
+        react-from-action.zip 
+        s3://sandup/fe/github-action.zip
+
+    - name: CodeDeploy 
+      run: aws deploy create-deployment 
+        --application-name githubaction-sandup
+        --deployment-config-name CodeDeployDefault.AllAtOnce 
+        --file-exists-behavior OVERWRITE 
+        --deployment-group-name githubaction-sandup-group
+        --s3-location 
+        bucket=ngl-test-version-deploy,bundleType=zip,key=fe/github-action.zip
