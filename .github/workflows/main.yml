@@ -65,4 +65,4 @@ jobs:
         --file-exists-behavior OVERWRITE 
         --deployment-group-name githubaction-sandup-group
         --s3-location 
-        bucket=ngl-test-version-deploy,bundleType=zip,key=fe/github-action.zip
+        bucket=sandup,bundleType=zip,key=fe/github-action.zip
