@@ -60,7 +60,7 @@ jobs:
 
     - name: CodeDeploy 
       run: aws deploy create-deployment 
-        --application-name githubaction-sandup
+        --application-name githubaction-sandup-fe
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name githubaction-sandup-group-fe
         --s3-location 
