@@ -39,13 +39,33 @@ jobs:
       - name: Build project
         run: npm run build
       # 배포 
-      - name: Deploy build outputs
-        uses: appleboy/scp-action@master
+      - name: checkout release
+        uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell 
+      - name: Clean temp directory and copy necessary files
+        run: |
+          mkdir ../temp
+          cp -r $GITHUB_WORKSPACE/* ../temp/
+        
+      - name: archive drcloud 
+        run: tar cvfz ./drcloud.tar.gz ../temp/*
+         
+      - name: AWS configure credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PEM_KEY }}
-          port: ${{ secrets.PORT }}
-          source: "build/*"
-          strip_components: 1
-          target: "/var/www/html"
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+          aws-region: ap-northeast-2
+          
+      - name: upload to S3
+        run : |
+           aws s3 cp --region ap-northeast-2 ./drcloud.tar.gz s3://sandup/fe/
+        
+      - name : deploy with AWS codeDeploy  
+        run : |
+           aws deploy create-deployment \
+           --application-name githubaction-sandup \
+           --deployment-config-name CodeDeployDefault.OneAtATime \
+           --deployment-group-name githubaction-sandup-group \
+           --s3-location bucket=sandup,bundleType=tgz,key=fe/drcloud.tar.gz 
