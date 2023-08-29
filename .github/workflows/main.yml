@@ -15,6 +15,9 @@ jobs:
   build:
     runs-on: ubuntu-20.04
 
+    env: 
+      CI: false
+
     # Nodejs 런타임 정보 설정
     strategy:
       matrix:
