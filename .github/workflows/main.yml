@@ -59,9 +59,10 @@ jobs:
         s3://sandup/fe/github-action.zip
 
     - name: CodeDeploy 
-      run : |
-        aws deploy create-deployment \
-        --application-name githubaction-sandup \
-        --deployment-config-name CodeDeployDefault.OneAtATime \
-        --deployment-group-name githubaction-sandup-group \
-        --s3-location bucket=sandup,bundleType=tgz,key=fe/github-action.zip
+      run: aws deploy create-deployment 
+        --application-name githubaction-sandup
+        --deployment-config-name CodeDeployDefault.AllAtOnce 
+        --file-exists-behavior OVERWRITE 
+        --deployment-group-name githubaction-sandup-group
+        --s3-location 
+        bucket=ngl-test-version-deploy,bundleType=zip,key=fe/github-action.zip
