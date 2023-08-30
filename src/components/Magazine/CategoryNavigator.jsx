@@ -303,7 +303,7 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    activeNav === 0
+                    process.env.PUBLIC_URL + activeNav === 0
                       ? `/assets/recommendTextClicked.svg`
                       : `/assets/recommendTextUnClicked.svg`
                   }
@@ -320,7 +320,7 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    activeNav === 1
+                    process.env.PUBLIC_URL + activeNav === 1
                       ? `/assets/lifestyleTextClicked.svg`
                       : `/assets/lifestyleTextUnClicked.svg`
                   }
@@ -337,7 +337,7 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    activeNav === 2
+                    process.env.PUBLIC_URL + activeNav === 2
                       ? `/assets/issueTextClicked.svg`
                       : `/assets/issueTextUnClicked.svg`
                   }
@@ -354,7 +354,7 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    activeNav === 3
+                    process.env.PUBLIC_URL + activeNav === 3
                       ? `/assets/healthTextClicked.svg`
                       : `/assets/healthTextUnClicked.svg`
                   }
@@ -371,7 +371,7 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    activeNav === 4
+                    process.env.PUBLIC_URL + activeNav === 4
                       ? `/assets/personTextClicked.svg`
                       : `/assets/personTextUnClicked.svg`
                   }
