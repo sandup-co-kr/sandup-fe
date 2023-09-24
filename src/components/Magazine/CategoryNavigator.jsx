@@ -303,14 +303,17 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    process.env.PUBLIC_URL + activeNav === 0
-                      ? `/assets/recommendTextClicked.svg`
-                      : `/assets/recommendTextUnClicked.svg`
+                    activeNav === 0
+                      ? `${process.env.PUBLIC_URL}/assets/recommendTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/recommendTextUnClicked.svg`
                   }
                   alt="Recommend Text"
                 />
                 {activeNav === 0 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Recommend Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Recommend Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -320,14 +323,17 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    process.env.PUBLIC_URL + activeNav === 1
-                      ? `/assets/lifestyleTextClicked.svg`
-                      : `/assets/lifestyleTextUnClicked.svg`
+                    activeNav === 1
+                      ? `${process.env.PUBLIC_URL}/assets/lifestyleTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/lifestyleTextUnClicked.svg`
                   }
                   alt="Lifestyle Text"
                 />
                 {activeNav === 1 && (
-                  <Bar src={`/assets/underbar6.svg`} alt="Line Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar6.svg`}
+                    alt="Line Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -337,14 +343,17 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    process.env.PUBLIC_URL + activeNav === 2
-                      ? `/assets/issueTextClicked.svg`
-                      : `/assets/issueTextUnClicked.svg`
+                    activeNav === 2
+                      ? `${process.env.PUBLIC_URL}/assets/issueTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/issueTextUnClicked.svg`
                   }
                   alt="Issue Text"
                 />
                 {activeNav === 2 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Issue Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Issue Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -354,14 +363,17 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    process.env.PUBLIC_URL + activeNav === 3
-                      ? `/assets/healthTextClicked.svg`
-                      : `/assets/healthTextUnClicked.svg`
+                    activeNav === 3
+                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
                   }
                   alt="Health Text"
                 />
                 {activeNav === 3 && (
-                  <Bar src={`/assets/underbar5.svg`} alt="Health Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
+                    alt="Health Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -371,14 +383,17 @@ const CategoryNavigator = () => {
               <NavIconContainer>
                 <Text
                   src={
-                    process.env.PUBLIC_URL + activeNav === 4
-                      ? `/assets/personTextClicked.svg`
-                      : `/assets/personTextUnClicked.svg`
+                    activeNav === 4
+                      ? `${process.env.PUBLIC_URL}/assets/personTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/personTextUnClicked.svg`
                   }
                   alt="Person Text"
                 />
                 {activeNav === 4 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Person Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Person Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -446,7 +461,9 @@ const CategoryNavigator = () => {
                     ? `${item.subtitle.slice(0, 26)}...`
                     : item.subtitle}
                 </CardSubTitle>
-                <CardStroke src={"/assets/separateLineCard.svg"} />
+                <CardStroke
+                  src={`${process.env.PUBLIC_URL}/assets/separateLineCard.svg`}
+                />
                 <SubContainer>
                   <HeartContainer>
                     <img src="assets/heartFill.svg" alt="Heart Icon" />
@@ -477,10 +494,15 @@ const CategoryNavigator = () => {
                     ? `${item.subtitle.slice(0, 26)}...`
                     : item.subtitle}
                 </CardSubTitle>
-                <CardStroke src={"/assets/separateLineCard.svg"} />
+                <CardStroke
+                  src={`${process.env.PUBLIC_URL}/assets/separateLineCard.svg`}
+                />
                 <SubContainer>
                   <HeartContainer>
-                    <img src="assets/heartFill.svg" alt="Heart Icon" />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
+                      alt="Heart Icon"
+                    />
                     <Like>{item.likes}</Like>
                   </HeartContainer>
                   <Date>{item.date.split("T")[0].replaceAll("-", ".")}</Date>
@@ -539,7 +561,7 @@ const CategoryNavigator = () => {
                         width: "13px",
                         height: "12px",
                       }}
-                      src="assets/heartFill.svg"
+                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
                       alt="Heart Icon"
                     />
                     <SmallCardLike>{item.likes}</SmallCardLike>
@@ -599,7 +621,7 @@ const CategoryNavigator = () => {
                           width: "13px",
                           height: "12px",
                         }}
-                        src="assets/heartFill.svg"
+                        src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
                         alt="Heart Icon"
                       />
                       <SmallCardLike>{item.likes}</SmallCardLike>

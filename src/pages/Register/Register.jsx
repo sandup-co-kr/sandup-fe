@@ -1074,7 +1074,7 @@ function Register() {
                 {file === null ? (
                   <img
                     style={{ width: "143px", height: "143px" }}
-                    src="/assets/profileImg.svg"
+                    src={`${process.env.PUBLIC_URL}/assets/profileImg.svg`}
                     alt="Upload Img"
                   />
                 ) : (

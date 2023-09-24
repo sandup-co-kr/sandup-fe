@@ -83,7 +83,7 @@ const BottomNavigator = () => {
     isRouteAllowed && (
       <NavbarContainer>
         <img
-          src={`/assets/navbarCover.png`}
+          src={`${process.env.PUBLIC_URL}/assets/navbarCover.png`}
           alt="Navbar Cover"
           className="navbar-cover-image"
         />
@@ -94,16 +94,16 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 0
-                      ? `/assets/navMainIconClicked.svg`
-                      : `/assets/navMainIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navMainIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navMainIcon.svg`
                   }
                   alt="Main Icon"
                 />
                 <Text
                   src={
                     activeNav === 0
-                      ? `/assets/navMainTextClicked.png`
-                      : `/assets/navMainText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navMainTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navMainText.png`
                   }
                   alt="Main Icon"
                 />
@@ -116,16 +116,16 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 1
-                      ? `/assets/navMagazineIconClicked.svg`
-                      : `/assets/navMagazineIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navMagazineIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navMagazineIcon.svg`
                   }
                   alt="Magazine Icon"
                 />
                 <Text
                   src={
                     activeNav === 1
-                      ? `/assets/navMagazineTextClicked.png`
-                      : `/assets/navMagazineText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navMagazineTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navMagazineText.png`
                   }
                   alt="Magazine Icon"
                 />
@@ -138,16 +138,16 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 2
-                      ? `/assets/navCommunityIconClicked.svg`
-                      : `/assets/navCommunityIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navCommunityIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navCommunityIcon.svg`
                   }
                   alt="Community Icon"
                 />
                 <Text
                   src={
                     activeNav === 2
-                      ? `/assets/navCommunityTextClicked.png`
-                      : `/assets/navCommunityText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navCommunityTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navCommunityText.png`
                   }
                   alt="Community Icon"
                 />
@@ -160,16 +160,16 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 3
-                      ? `/assets/navShopIconClicked.svg`
-                      : `/assets/navShopIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navShopIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navShopIcon.svg`
                   }
                   alt="Shop Icon"
                 />
                 <Text
                   src={
                     activeNav === 3
-                      ? `/assets/navShopTextClicked.png`
-                      : `/assets/navShopText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navShopTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navShopText.png`
                   }
                   alt="Shop Icon"
                 />
@@ -182,16 +182,16 @@ const BottomNavigator = () => {
                 <Icon
                   src={
                     activeNav === 4
-                      ? `/assets/navMypageIconClicked.svg`
-                      : `/assets/navMypageIcon.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/navMypageIconClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/navMypageIcon.svg`
                   }
                   alt="Mypage Icon"
                 />
                 <Text
                   src={
                     activeNav === 4
-                      ? `/assets/navMypageTextClicked.png`
-                      : `/assets/navMypageText.png`
+                      ? `${process.env.PUBLIC_URL}/assets/navMypageTextClicked.png`
+                      : `${process.env.PUBLIC_URL}/assets/navMypageText.png`
                   }
                   alt="Mypage Icon"
                 />

@@ -391,7 +391,7 @@ const Main = () => {
             <MainHyphen>
               <img
                 style={{ width: "15px" }}
-                src={"./assets/mainTitleHyphen.svg"}
+                src={`${process.env.PUBLIC_URL}/assets/mainTitleHyphen.svg`}
                 alt="title_arrow"
               />
             </MainHyphen>
@@ -403,7 +403,7 @@ const Main = () => {
               {element.link}
               <img
                 style={{ width: "25px", marginLeft: "10px", marginTop: "1px" }}
-                src={"./assets/mainTitleArrow.svg"}
+                src={`${process.env.PUBLIC_URL}/assets/mainTitleArrow.svg`}
                 alt="title_arrow"
               />
             </MainLink>
@@ -426,7 +426,7 @@ const Main = () => {
             {index !== 0 && (
               <img
                 style={{ padding: "0px 20px" }}
-                src="assets/separateLine.svg"
+                src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
                 alt="Separate Line"
               />
             )}
@@ -443,7 +443,7 @@ const Main = () => {
                   <HeartContainer>
                     <img
                       style={{ width: "13px", height: "12px" }}
-                      src="assets/heartEmpty.svg"
+                      src={`${process.env.PUBLIC_URL}/assets/heartEmpty.svg`}
                       alt="heart"
                     />
                     <CommunityCardLikeComment>
@@ -457,7 +457,7 @@ const Main = () => {
                         width: "14px",
                         height: "14px",
                       }}
-                      src="assets/comment.svg"
+                      src={`${process.env.PUBLIC_URL}/assets/comment.svg`}
                       alt="comment"
                     />
                     <CommunityCardLikeComment>
@@ -467,7 +467,10 @@ const Main = () => {
                 </CommunityCardFlexContainer>
               </CommunityCardTitleContainer>
               <CommunityCardImage
-                src={element.img || "assets/imgUploadButton.svg"}
+                src={
+                  element.img ||
+                  `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                }
               />
             </CommunityCard>
           </>

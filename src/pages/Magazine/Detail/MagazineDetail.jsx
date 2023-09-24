@@ -119,10 +119,15 @@ const MagazineDetail = () => {
     <>
       <ThumbnailContainer>
         <GoBackButton
-          src="/assets/goBackButtonWhite.svg"
+          src={`${process.env.PUBLIC_URL}/assets/goBackButtonWhite.svg`}
           onClick={handleGoBack}
         />
-        <Thumbnail src={data.main_img || "/assets/imgUploadButton.svg"} />
+        <Thumbnail
+          src={
+            data.main_img ||
+            `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+          }
+        />
         <Category>{category}</Category>
         <Title>{data.title}</Title>
         <Date>{data.date.replaceAll("-", ".").split("T")[0]}</Date>

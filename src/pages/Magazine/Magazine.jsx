@@ -51,7 +51,7 @@ const Magazine = () => {
       {userInfo?.admin ? (
         <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
           <UploadImg
-            src={"assets/uploadFloatingButton.svg"}
+            src={`${process.env.PUBLIC_URL}/assets/uploadFloatingButton.svg`}
             alt="Upload Button"
           />
         </UploadImgFab>

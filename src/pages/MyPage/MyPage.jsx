@@ -192,8 +192,14 @@ function MyPage() {
       <ProfileContainer>
         <Name>{userInfo.name?.split("").join(" ")}</Name>
         <label for="fileInput" class="image-button">
-          <ProfileImg src={userInfo.img || file || "/assets/editProfile.svg"} />
-          <EditButton src="/assets/editButton.svg" />
+          <ProfileImg
+            src={
+              userInfo.img ||
+              file ||
+              `${process.env.PUBLIC_URL}/assets/editProfile.svg`
+            }
+          />
+          <EditButton src={`${process.env.PUBLIC_URL}/assets/editButton.svg`} />
           <ProfileImgUpload
             id="fileInput"
             type="file"
@@ -205,21 +211,21 @@ function MyPage() {
       <PointBox>
         <PointContainer>
           <PointTextContainer>
-            <PointIcon src="/assets/point.svg" />
+            <PointIcon src={`${process.env.PUBLIC_URL}/assets/point.svg`} />
             <PointInt>{userInfo.point}P</PointInt>
           </PointTextContainer>
           <PointText>포인트</PointText>
         </PointContainer>
         <PointContainer>
           <PointTextContainer>
-            <PointIcon src="/assets/bookMark.svg" />
+            <PointIcon src={`${process.env.PUBLIC_URL}/assets/bookMark.svg`} />
             <PointInt>{userInfo.bookmark}</PointInt>
           </PointTextContainer>
           <PointText>저장한 글</PointText>
         </PointContainer>
         <PointContainer>
           <PointTextContainer>
-            <PointIcon src="/assets/order.svg" />
+            <PointIcon src={`${process.env.PUBLIC_URL}/assets/order.svg`} />
             <PointInt>{userInfo.ordered}</PointInt>
           </PointTextContainer>
           <PointText>주문내역</PointText>
@@ -228,37 +234,53 @@ function MyPage() {
       <CategoryText1>내 활동</CategoryText1>
       <CategoryContainer>
         <Category>작성한 글</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>댓글, 좋아요 관리</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>저장한 글</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>포인트 적립 내역</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <BlankDiv />
       <CategoryText2>쇼핑몰</CategoryText2>
       <CategoryContainer>
         <Category>주문내역</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>반품 및 교환</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>문의</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <CategoryContainer>
         <Category>리뷰관리</Category>
-        <CategoryIcon src="/assets/mypageArrow.svg" />
+        <CategoryIcon
+          src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
+        />
       </CategoryContainer>
       <Footer />
     </>

@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../react-query/keys";
 import { Box } from "@mui/material";
-import getMagazineList from "../../services/Magazine/Get/getMagazineList";
-import getMagazineListRecommend from "../../services/Magazine/Get/getMagazineListRecommend";
 import Footer from "../Common/Footer";
 import getCommunityList from "../../services/Community/Get/getCommunityList";
 import getCommunityListRecommend from "../../services/Community/Get/getCommunityListRecommend";
@@ -103,10 +101,10 @@ const CardAuthor = styled.p`
   line-height: 150%; /* 22.5px */
 `;
 
-const CardStroke = styled.img`
-  margin-left: 14px;
-  width: 188.5px;
-`;
+// const CardStroke = styled.img`
+//   margin-left: 14px;
+//   width: 188.5px;
+// `;
 
 const SubContainer = styled.div`
   margin-top: -25px;
@@ -320,13 +318,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `/assets/recommendTextClicked.svg`
-                      : `/assets/recommendTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/recommendTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/recommendTextUnClicked.svg`
                   }
                   alt="Recommend Text"
                 />
                 {activeNav === 0 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Recommend Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Recommend Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -337,13 +338,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `/assets/lifestyleTextClicked.svg`
-                      : `/assets/lifestyleTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/lifestyleTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/lifestyleTextUnClicked.svg`
                   }
                   alt="Lifestyle Text"
                 />
                 {activeNav === 1 && (
-                  <Bar src={`/assets/underbar6.svg`} alt="Line Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar6.svg`}
+                    alt="Line Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -354,13 +358,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `/assets/issueTextClicked.svg`
-                      : `/assets/issueTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/issueTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/issueTextUnClicked.svg`
                   }
                   alt="Issue Text"
                 />
                 {activeNav === 2 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Issue Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Issue Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -371,13 +378,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `/assets/healthTextClicked.svg`
-                      : `/assets/healthTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
                   }
                   alt="Health Text"
                 />
                 {activeNav === 3 && (
-                  <Bar src={`/assets/underbar5.svg`} alt="Health Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
+                    alt="Health Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -388,13 +398,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 4
-                      ? `/assets/tourTextClicked.svg`
-                      : `/assets/tourTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/tourTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/tourTextUnClicked.svg`
                   }
                   alt="Tour Text"
                 />
                 {activeNav === 4 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Tour Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Tour Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -442,7 +455,10 @@ const CategoryNavigator = () => {
             return (
               <CardContainer onClick={() => handleCardClick(item.id)}>
                 <CardImg
-                  src={item.img || "assets/imgUploadButton.svg"}
+                  src={
+                    item.img ||
+                    `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                  }
                   alt={"Card Img"}
                 />
                 <CardCategory style={{ color: categoryColor }}>
@@ -459,7 +475,10 @@ const CategoryNavigator = () => {
                 </SubContainer>
                 <SubContainer>
                   <HeartContainer>
-                    <img src="assets/heartFill.svg" alt="Heart Icon" />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
+                      alt="Heart Icon"
+                    />
                     <Like>{item.likes}</Like>
                   </HeartContainer>
                 </SubContainer>
@@ -472,7 +491,10 @@ const CategoryNavigator = () => {
             return (
               <CardContainer onClick={() => handleCardClick(item.id)}>
                 <CardImg
-                  src={item.img || "assets/imgUploadButton.svg"}
+                  src={
+                    item.img ||
+                    `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                  }
                   alt={"Card Img"}
                 />
                 <CardCategory style={{ color: categoryColor }}>
@@ -489,7 +511,10 @@ const CategoryNavigator = () => {
                 </SubContainer>
                 <SubContainer>
                   <HeartContainer>
-                    <img src="assets/heartFill.svg" alt="Heart Icon" />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
+                      alt="Heart Icon"
+                    />
                     <Like>{item.likes}</Like>
                   </HeartContainer>
                 </SubContainer>
@@ -530,7 +555,9 @@ const CategoryNavigator = () => {
             if (index !== 0) {
               return (
                 <>
-                  <SeparateLine src="/assets/separateLine.svg" />
+                  <SeparateLine
+                    src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
+                  />
                   <RecentCardContainer onClick={() => handleCardClick(item.id)}>
                     <RecentTextContainer>
                       <RecentFlexContainer>
@@ -546,11 +573,18 @@ const CategoryNavigator = () => {
                         </RecentDate>
                       </RecentFlexContainer>
                       <RecentFlexContainer>
-                        <RecentHeart src="/assets/heartEmpty.svg" />
+                        <RecentHeart
+                          src={`${process.env.PUBLIC_URL}/assets/heartEmpty.svg`}
+                        />
                         <RecentLike>{item.likes}</RecentLike>
                       </RecentFlexContainer>
                     </RecentTextContainer>
-                    <RecentImg src={item.img || "assets/imgUploadButton.svg"} />
+                    <RecentImg
+                      src={
+                        item.img ||
+                        `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                      }
+                    />
                   </RecentCardContainer>
                 </>
               );
@@ -571,11 +605,18 @@ const CategoryNavigator = () => {
                     </RecentDate>
                   </RecentFlexContainer>
                   <RecentFlexContainer>
-                    <RecentHeart src="/assets/heartEmpty.svg" />
+                    <RecentHeart
+                      src={`${process.env.PUBLIC_URL}/assets/heartEmpty.svg`}
+                    />
                     <RecentLike>{item.likes}</RecentLike>
                   </RecentFlexContainer>
                 </RecentTextContainer>
-                <RecentImg src={item.img || "assets/imgUploadButton.svg"} />
+                <RecentImg
+                  src={
+                    item.img ||
+                    `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                  }
+                />
               </RecentCardContainer>
             );
           }
@@ -585,7 +626,9 @@ const CategoryNavigator = () => {
               categoryCount++;
               return (
                 <>
-                  <SeparateLine src="/assets/separateLine.svg" />
+                  <SeparateLine
+                    src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
+                  />
                   <RecentCardContainer onClick={() => handleCardClick(item.id)}>
                     <RecentTextContainer>
                       <RecentFlexContainer>
@@ -601,11 +644,18 @@ const CategoryNavigator = () => {
                         </RecentDate>
                       </RecentFlexContainer>
                       <RecentFlexContainer>
-                        <RecentHeart src="/assets/heartEmpty.svg" />
+                        <RecentHeart
+                          src={`${process.env.PUBLIC_URL}/assets/heartEmpty.svg`}
+                        />
                         <RecentLike>{item.likes}</RecentLike>
                       </RecentFlexContainer>
                     </RecentTextContainer>
-                    <RecentImg src={item.img || "assets/imgUploadButton.svg"} />
+                    <RecentImg
+                      src={
+                        item.img ||
+                        `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                      }
+                    />
                   </RecentCardContainer>
                 </>
               );
@@ -627,11 +677,18 @@ const CategoryNavigator = () => {
                     </RecentDate>
                   </RecentFlexContainer>
                   <RecentFlexContainer>
-                    <RecentHeart src="/assets/heartEmpty.svg" />
+                    <RecentHeart
+                      src={`${process.env.PUBLIC_URL}/assets/heartEmpty.svg`}
+                    />
                     <RecentLike>{item.likes}</RecentLike>
                   </RecentFlexContainer>
                 </RecentTextContainer>
-                <RecentImg src={item.img || "assets/imgUploadButton.svg"} />
+                <RecentImg
+                  src={
+                    item.img ||
+                    `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
+                  }
+                />
               </RecentCardContainer>
             );
           }

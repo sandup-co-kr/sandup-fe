@@ -157,13 +157,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `/assets/lifestyleTextClicked.svg`
-                      : `/assets/lifestyleTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/lifestyleTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/lifestyleTextUnClicked.svg`
                   }
                   alt="Lifestyle Text"
                 />
                 {activeNav === 0 && (
-                  <Bar src={`/assets/underbar6.svg`} alt="Line Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar6.svg`}
+                    alt="Line Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -174,13 +177,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `/assets/issueTextClicked.svg`
-                      : `/assets/issueTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/issueTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/issueTextUnClicked.svg`
                   }
                   alt="Issue Text"
                 />
                 {activeNav === 1 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Issue Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Issue Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -191,13 +197,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `/assets/healthTextClicked.svg`
-                      : `/assets/healthTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
                   }
                   alt="Health Text"
                 />
                 {activeNav === 2 && (
-                  <Bar src={`/assets/underbar5.svg`} alt="Health Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
+                    alt="Health Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -208,13 +217,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `/assets/personTextClicked.svg`
-                      : `/assets/personTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/personTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/personTextUnClicked.svg`
                   }
                   alt="Person Text"
                 />
                 {activeNav === 3 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Person Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Person Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -225,13 +237,16 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 4
-                      ? `/assets/voteTextClicked.svg`
-                      : `/assets/voteTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/voteTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/voteTextUnClicked.svg`
                   }
                   alt="Vote Text"
                 />
                 {activeNav === 4 && (
-                  <Bar src={`/assets/underbar2.svg`} alt="Vote Underbar" />
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
+                    alt="Vote Underbar"
+                  />
                 )}
               </NavIconContainer>
             </NavbarLink>

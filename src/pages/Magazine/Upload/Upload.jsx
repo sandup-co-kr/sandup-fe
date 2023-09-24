@@ -232,7 +232,7 @@ const Upload = () => {
       <components.DropdownIndicator {...props}>
         <img
           style={{ marginTop: "-2px" }}
-          src="/assets/selectArrow.svg"
+          src={`${process.env.PUBLIC_URL}/assets/selectArrow.svg`}
           alt="Select Arrow"
         />
       </components.DropdownIndicator>
@@ -295,13 +295,16 @@ const Upload = () => {
     <form onSubmit={handleUpload}>
       <TopContainer>
         <GoBackButton
-          src={"/assets/goBackButton.svg"}
+          src={`${process.env.PUBLIC_URL}/assets/goBackButton.svg`}
           alt="Go Back Button"
           onClick={handelGoBack}
         />
         <Title>칼럼 업로드</Title>
         <label for="submit">
-          <UploadButton src={"/assets/uploadButton.svg"} alt="Upload Button" />
+          <UploadButton
+            src={`${process.env.PUBLIC_URL}/assets/uploadButton.svg`}
+            alt="Upload Button"
+          />
           <input type="submit" id="submit" style={{ display: "none" }} />
         </label>
       </TopContainer>
@@ -326,7 +329,7 @@ const Upload = () => {
               {file === null ? (
                 <img
                   style={{ width: "54px", height: "54px" }}
-                  src="/assets/imgUploadButton.svg"
+                  src={`${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`}
                   alt="Upload Img"
                 />
               ) : (
@@ -345,7 +348,9 @@ const Upload = () => {
             />
           </ImageContainer>
         </TitleContainer>
-        <SeparateLine src={"/assets/separateLine.svg"} />
+        <SeparateLine
+          src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
+        />
         <SubTitleText>부제목</SubTitleText>
         <ContentInput name="subTitle" placeholder="부제목을 입력해주세요" />
         <ContentText>링크</ContentText>
