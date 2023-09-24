@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
 
 const NavbarContainer = styled.div`
+  z-index: 100;
   height: 92px;
   flex-shrink: 0;
   border-radius: 15px;
