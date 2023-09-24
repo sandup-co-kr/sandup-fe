@@ -33,8 +33,10 @@ jobs:
     - name: Generate .env file
       run: |
         echo "REACT_APP_BASE_URL=$REACT_APP_BASE_URL">>.env
+          echo " PUBLIC_URL=$ PUBLIC_URL">>.env
       env: 
         REACT_APP_BASE_URL: ${{ secrets.HOST }}
+        PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
 
     - name: React build
       run: npm run build --if-present
