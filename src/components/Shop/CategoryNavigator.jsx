@@ -156,6 +156,110 @@ const SaleText = styled.p`
   line-height: 150%; /* 27px */
 `;
 
+const RecommendText = styled.p`
+  margin-left: 14px;
+  color: var(--active, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 27px */
+`;
+
+const SmallCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const SmallCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+`;
+
+const SmallCardImg = styled.img`
+  width: 156px;
+  height: 156px;
+`;
+
+const SmallCardCategory = styled.p`
+  margin-top: -145px;
+  margin-left: 15px;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 19.5px */
+`;
+
+const SmallCardTitle = styled.p`
+  margin-top: 125px;
+  color: var(--unnamed, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 22.5px */
+`;
+
+const SmallCardSubTitle = styled.p`
+  margin-top: -15px;
+  width: 154px;
+  height: 33px;
+  flex-shrink: 0;
+  color: var(--unnamed, #575757);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+`;
+
+const SmallSubContainer = styled.div`
+  margin-top: -20px;
+  width: 154px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SmallCardHeartContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SmallCardLike = styled.p`
+  margin-left: 4px;
+  flex-shrink: 0;
+
+  color: #838383;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 19.5px */
+`;
+
+const SmallCardDate = styled.p`
+  color: #c6c6c6;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 19.5px */
+`;
+
 const CategoryNavigator = () => {
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState(0);
@@ -163,6 +267,7 @@ const CategoryNavigator = () => {
   let healthStack = 0;
   let tourStack = 0;
   let etcStack = 0;
+  let categoryCount = 0;
   const categoryObj = {
     health: healthStack,
     tour: tourStack,
@@ -346,6 +451,57 @@ const CategoryNavigator = () => {
         })}
       </Box>
       <BlankDiv style={{ marginTop: "0px" }} />
+      <RecommendText>이런 상품은 어떠세요?</RecommendText>
+      <SmallCardContainer>
+        {data.map((item) => {
+          let categoryKor = "";
+          let categoryColor = "";
+          if (item.category === "health") {
+            categoryKor = "건강/뷰티";
+            categoryColor = "#EE87FF";
+          }
+          if (item.category === "tour") {
+            categoryKor = "여행";
+            categoryColor = "#E7B400";
+          }
+          if (item.category === "etc") {
+            categoryKor = "기타";
+            categoryColor = "#00BD57";
+          }
+          return (
+            <SmallCard onClick={() => handleCardClick(item.id)}>
+              <SmallCardImg src={item.img} alt={"Card Img"} />
+              <SmallCardCategory style={{ color: categoryColor }}>
+                {categoryKor}
+              </SmallCardCategory>
+              <SmallCardTitle>
+                {" "}
+                {item.name.length > 11
+                  ? `${item.name.slice(0, 11)}...`
+                  : item.name}
+              </SmallCardTitle>
+              <SmallCardSubTitle>{item.seller}</SmallCardSubTitle>
+              {/* <SmallSubContainer>
+                  <SmallCardHeartContainer>
+                    <img
+                      style={{
+                        marginTop: "-2.5px",
+                        width: "13px",
+                        height: "12px",
+                      }}
+                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
+                      alt="Heart Icon"
+                    />
+                    <SmallCardLike>{item.likes}</SmallCardLike>
+                  </SmallCardHeartContainer>
+                  <SmallCardDate>
+                    {item.date.split("T")[0].replaceAll("-", ".")}
+                  </SmallCardDate>
+                </SmallSubContainer> */}
+            </SmallCard>
+          );
+        })}
+      </SmallCardContainer>
       <Footer />
     </>
   );
