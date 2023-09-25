@@ -11,6 +11,7 @@ import MyPage from "./pages/MyPage";
 import MagazineDetail from "./pages/Magazine/Detail/MagazineDetail";
 import Upload from "./pages/Magazine/Upload";
 import CommunityDetail from "./pages/Community/Detail/CommunityDetail";
+import ShopDetail from "./pages/Shop/Detail/ShopDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/community" element={<Community />} />
       <Route exact path="/community/:id" element={<CommunityDetail />} />
       <Route exact path="/shop" element={<Shop />} />
+      <Route exact path="/shop/:id" element={<ShopDetail />} />
       <Route exact path="/mypage" element={<MyPage />} />
     </Routes>
   );

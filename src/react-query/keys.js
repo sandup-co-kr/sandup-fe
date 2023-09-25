@@ -10,4 +10,5 @@ export const queryKeys = {
   COMMUNITY_LIST: "community_list",
   COMMUNITY_DETAIL: "community_detail",
   SHOP_LIST: "shop_list",
+  SHOP_DETAIL: "shop_detail",
 };
