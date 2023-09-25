@@ -136,7 +136,9 @@ const BlankDiv = styled.div`
   margin-top: 28px;
 `;
 
-const ShopAd = styled.img``;
+const ShopAd = styled.img`
+  width: 100%;
+`;
 
 const SaleContainer = styled.div`
   display: flex;
@@ -221,9 +223,9 @@ const CategoryNavigator = () => {
                   src={
                     activeNav === 1
                       ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked1.svg`
                   }
-                  alt="Health Text"
+                  alt="Health Text1"
                 />
                 {activeNav === 1 && (
                   <Bar
