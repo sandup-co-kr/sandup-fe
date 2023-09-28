@@ -307,16 +307,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `${process.env.PUBLIC_URL}/assets/todayTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/todayTextUnClicked.svg`
+                      ? `/assets/todayTextClicked.svg`
+                      : `/assets/todayTextUnClicked.svg`
                   }
                   alt="Today Text"
                 />
                 {activeNav === 0 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar3.svg`}
-                    alt="Line Underbar"
-                  />
+                  <Bar src={`/assets/underbar3.svg`} alt="Line Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -327,16 +324,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                      ? `/assets/healthTextClicked.svg`
                       : `/assets/healthTextUnClicked.svg`
                   }
                   alt="Health Text1"
                 />
                 {activeNav === 1 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
-                    alt="Health Underbar"
-                  />
+                  <Bar src={`/assets/underbar5.svg`} alt="Health Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -347,16 +341,13 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/tourTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/tourTextUnClicked.svg`
+                      ? `/assets/tourTextClicked.svg`
+                      : `/assets/tourTextUnClicked.svg`
                   }
                   alt="Tour Text"
                 />
                 {activeNav === 2 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
-                    alt="Tour Underbar"
-                  />
+                  <Bar src={`/assets/underbar2.svg`} alt="Tour Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
@@ -367,23 +358,20 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/etcTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/etcTextUnClicked.svg`
+                      ? `/assets/etcTextClicked.svg`
+                      : `/assets/etcTextUnClicked.svg`
                   }
                   alt="Etc Text"
                 />
                 {activeNav === 3 && (
-                  <Bar
-                    src={`${process.env.PUBLIC_URL}/assets/underbar2.svg`}
-                    alt="Etc Underbar"
-                  />
+                  <Bar src={`/assets/underbar2.svg`} alt="Etc Underbar" />
                 )}
               </NavIconContainer>
             </NavbarLink>
           </NavbarListItem>
         </NavbarList>
       </NavbarContainer>
-      <ShopAd src={`${process.env.PUBLIC_URL}/assets/shopAd.svg`} />
+      <ShopAd src={`/assets/shopAd.svg`} />
       <SaleContainer>
         {activeNav === 0 && <SaleText>오늘의 특가 상품</SaleText>}
         {activeNav === 1 && <SaleText>건강/뷰티 특가 상품</SaleText>}
@@ -489,7 +477,7 @@ const CategoryNavigator = () => {
                         width: "13px",
                         height: "12px",
                       }}
-                      src={`${process.env.PUBLIC_URL}/assets/heartFill.svg`}
+                      src={`/assets/heartFill.svg`}
                       alt="Heart Icon"
                     />
                     <SmallCardLike>{item.likes}</SmallCardLike>
