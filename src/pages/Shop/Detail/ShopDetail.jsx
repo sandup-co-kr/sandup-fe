@@ -42,6 +42,7 @@ const Category = styled.p`
 `;
 
 const Title = styled.p`
+  margin-top: -5px;
   margin-left: 17px;
   height: 35px;
   width: 65%;
@@ -64,6 +65,57 @@ const BlankDiv = styled.div`
 
 const ImgDetail = styled.img`
   width: 100%;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const TitleSubContainer1 = styled.div`
+  width: 60%;
+`;
+
+const TitleSubContainer2 = styled.div`
+  width: 40%;
+`;
+
+const Price = styled.p`
+  text-align: right;
+  margin-right: 17px;
+  color: var(--unnamed, #575757);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+  text-decoration: line-through;
+`;
+
+const Discount = styled.p`
+  text-align: right;
+  color: var(--, #0a81ce);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 150%; /* 27px */
+`;
+
+const DiscountPrice = styled.p`
+  text-align: right;
+  color: var(--active, #333);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
 `;
 
 const ShopDetail = () => {
@@ -112,10 +164,30 @@ const ShopDetail = () => {
             data.img || `${process.env.PUBLIC_URL}/assets/imgUploadButton.svg`
           }
         />
-        <Category>{data.seller}</Category>
-        <Title>{data.name}</Title>
+        <TitleContainer>
+          <TitleSubContainer1>
+            <Category>{data.seller}</Category>
+            <Title>{data.name}</Title>
+          </TitleSubContainer1>
+          <TitleSubContainer2>
+            <Price>{data.price.toLocaleString()}원</Price>
+            <div
+              style={{
+                textAlign: "right",
+                display: "flex",
+                marginRight: "17px",
+              }}
+            >
+              <Discount>{data.discount}</Discount>
+              <DiscountPrice>
+                {((data.price * (100 - data.discount)) / 100).toLocaleString()}
+                원
+              </DiscountPrice>
+            </div>
+          </TitleSubContainer2>
+        </TitleContainer>
       </ThumbnailContainer>
-      <BlankDiv style={{ marginTop: "100px" }} />
+      <BlankDiv style={{ marginTop: "110px" }} />
       <ImgDetail src={data.img_detail} />
       <Footer />
     </>
