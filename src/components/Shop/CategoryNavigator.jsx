@@ -324,21 +324,18 @@ const CategoryNavigator = () => {
           <NavbarListItem onClick={() => handleNavClick(1)}>
             <NavbarLink exact to="/shop">
               <NavIconContainer>
-                {(activeNav === 1 && (
-                  <>
-                    <Text
-                      src={`${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`}
-                      alt="Health Text1"
-                    />
-                    <Bar
-                      src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
-                      alt="Health Underbar"
-                    />
-                  </>
-                )) || (
-                  <Text
-                    src={`${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`}
-                    alt="Health Text1"
+                <Text
+                  src={
+                    activeNav === 1
+                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
+                  }
+                  alt="Health Text1"
+                />
+                {activeNav === 1 && (
+                  <Bar
+                    src={`${process.env.PUBLIC_URL}/assets/underbar5.svg`}
+                    alt="Health Underbar"
                   />
                 )}
               </NavIconContainer>
