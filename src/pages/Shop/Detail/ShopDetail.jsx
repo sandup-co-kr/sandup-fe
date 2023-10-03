@@ -1,20 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../../react-query/keys";
-import getMagazineDetail from "../../../services/Magazine/Get/getMagazineDetail";
 import styled from "@emotion/styled";
 import getShopDetail from "../../../services/Shop/Get/getShopDetail";
 import Footer from "../../../components/Common/Footer";
 
-const Content = styled.div`
-  width: 96%;
-  height: 100%;
-  padding: 4% 2%;
-`;
-
 const ThumbnailContainer = styled.div`
   width: 100%;
-  height: 340px;
+  height: 100%;
 `;
 
 const GoBackButton = styled.img`
@@ -31,7 +24,7 @@ const Thumbnail = styled.img`
 
 const Category = styled.p`
   margin-left: 17px;
-  color: var(--unnamed, #0a81ce);
+  color: #a3a3a3;
   leading-trim: both;
   text-edge: cap;
   font-family: NanumSquare_ac;
@@ -44,7 +37,8 @@ const Category = styled.p`
 const Title = styled.p`
   margin-top: -5px;
   margin-left: 17px;
-  height: 35px;
+  min-height: 35px;
+  height: 100%;
   width: 65%;
   color: var(--, #333);
   leading-trim: both;
@@ -69,7 +63,6 @@ const ImgDetail = styled.img`
 
 const TitleContainer = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
 const TitleSubContainer1 = styled.div`
@@ -95,8 +88,8 @@ const Price = styled.p`
 `;
 
 const Discount = styled.p`
-  text-align: right;
-  color: var(--, #0a81ce);
+  margin-top: 21px;
+  color: #0a81ce;
   leading-trim: both;
   text-edge: cap;
   font-family: NanumSquare_ac;
@@ -107,6 +100,8 @@ const Discount = styled.p`
 `;
 
 const DiscountPrice = styled.p`
+  margin-left: 5px;
+  margin-right: 17px;
   text-align: right;
   color: var(--active, #333);
   leading-trim: both;
@@ -116,6 +111,12 @@ const DiscountPrice = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 150%; /* 30px */
+`;
+
+const PriceContainer = styled.div`
+  display: flex;
+  margin-top: -25px;
+  flex-direction: row-reverse;
 `;
 
 const ShopDetail = () => {
@@ -156,7 +157,7 @@ const ShopDetail = () => {
     <>
       <ThumbnailContainer>
         <GoBackButton
-          src={`${process.env.PUBLIC_URL}/assets/goBackButtonWhite.svg`}
+          src={`${process.env.PUBLIC_URL}/assets/goBackButtonBlue.svg`}
           onClick={handleGoBack}
         />
         <Thumbnail
@@ -171,23 +172,17 @@ const ShopDetail = () => {
           </TitleSubContainer1>
           <TitleSubContainer2>
             <Price>{data.price.toLocaleString()}원</Price>
-            <div
-              style={{
-                textAlign: "right",
-                display: "flex",
-                marginRight: "17px",
-              }}
-            >
-              <Discount>{data.discount}</Discount>
+            <PriceContainer>
               <DiscountPrice>
                 {((data.price * (100 - data.discount)) / 100).toLocaleString()}
                 원
               </DiscountPrice>
-            </div>
+              <Discount>{data.discount}%</Discount>
+            </PriceContainer>
           </TitleSubContainer2>
         </TitleContainer>
       </ThumbnailContainer>
-      <BlankDiv style={{ marginTop: "110px" }} />
+      <BlankDiv />
       <ImgDetail src={data.img_detail} />
       <Footer />
     </>
