@@ -31,7 +31,7 @@ const MainLink = styled.p`
 `;
 
 const MainTitle = styled.p`
-  width: 100%;
+  width: 70%;
   z-index: 1;
   position: absolute;
   top: 20%;
