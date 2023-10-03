@@ -287,9 +287,6 @@ const Upload = () => {
     formData.append("html", htmlModified);
     formData.append("content", html.content);
     postMagazineMutation.mutate(formData);
-    alert("업로드 되었습니다.");
-    e.preventDefault();
-    window.location.href = "/magazine";
   };
 
   return (
