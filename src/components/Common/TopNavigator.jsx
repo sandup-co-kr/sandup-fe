@@ -79,10 +79,10 @@ const LoginButtonIcon = styled.img`
 `;
 
 const LoginButtonText = styled(Typography)`
-  width: 43px;
+  width: 100%;
   height: 10px;
   top: 6px;
-  right: 11px;
+  right: -28px;
   position: absolute;
   color: #0a81ce;
   leading-trim: both;
