@@ -39,7 +39,6 @@ const Title = styled.p`
   margin-left: 17px;
   min-height: 35px;
   height: 100%;
-  width: 65%;
   color: var(--, #333);
   leading-trim: both;
   text-edge: cap;
@@ -66,11 +65,11 @@ const TitleContainer = styled.div`
 `;
 
 const TitleSubContainer1 = styled.div`
-  width: 60%;
+  width: 50%;
 `;
 
 const TitleSubContainer2 = styled.div`
-  width: 40%;
+  width: 50%;
 `;
 
 const Price = styled.p`
