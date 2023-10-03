@@ -288,6 +288,7 @@ const Upload = () => {
     formData.append("content", html.content);
     postMagazineMutation.mutate(formData);
     alert("업로드 되었습니다.");
+    e.preventDefault();
     window.location.href = "/magazine";
   };
 
@@ -321,6 +322,7 @@ const Upload = () => {
                 { value: "issue", label: "이슈" },
                 { value: "health", label: "건강/뷰티" },
                 { value: "person", label: "인물" },
+                { value: "webtoon", label: "시니어 웹툰" },
               ]}
             />
           </CategoryContainer>
