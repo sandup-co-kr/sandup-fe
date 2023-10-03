@@ -157,8 +157,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `${process.env.PUBLIC_URL}/assets/lifestyleTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/lifestyleTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/lifestyleClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/lifestyleUnClicked.svg`
                   }
                   alt="Lifestyle Text"
                 />
@@ -177,8 +177,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/issueTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/issueTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/issueClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/issueUnClicked.svg`
                   }
                   alt="Issue Text"
                 />
@@ -197,8 +197,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/healthTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/healthTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/healthClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthUnClicked.svg`
                   }
                   alt="Health Text"
                 />
@@ -217,8 +217,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/personTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/personTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/personClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/personUnClicked.svg`
                   }
                   alt="Person Text"
                 />
@@ -237,8 +237,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/voteTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/voteTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/voteClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/voteUnClicked.svg`
                   }
                   alt="Vote Text"
                 />

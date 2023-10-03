@@ -307,8 +307,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 0
-                      ? `${process.env.PUBLIC_URL}/assets/todayTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/todayTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/todayClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/todayUnClicked.svg`
                   }
                   alt="Today Text"
                 />
@@ -327,8 +327,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/healthText2.svg`
-                      : `${process.env.PUBLIC_URL}/assets/healthText1.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/healthClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthUnClicked.svg`
                   }
                   alt="Health Text"
                 />
@@ -347,8 +347,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 2
-                      ? `${process.env.PUBLIC_URL}/assets/tourTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/tourTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/tourClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/tourUnClicked.svg`
                   }
                   alt="Tour Text"
                 />
@@ -367,8 +367,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 3
-                      ? `${process.env.PUBLIC_URL}/assets/etcTextClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/etcTextUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/etcClicked.svg`
+                      : `${process.env.PUBLIC_URL}/assets/etcUnClicked.svg`
                   }
                   alt="Etc Text"
                 />
