@@ -63,7 +63,7 @@ const LoginButton = styled.div`
   width: 82px;
   height: 32px;
   flex-shrink: 0;
-  position: fixed;
+  position: absolute;
   top: 27px;
   right: 15px;
   display: flex;
