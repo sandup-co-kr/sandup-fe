@@ -68,6 +68,7 @@ const BottomNavigator = () => {
   const location = useLocation();
   const allowedRoutes = ["/", "/magazine", "/community", "/shop", "/mypage"];
   const isRouteAllowed = allowedRoutes.includes(location.pathname);
+  const isLoggedIn = localStorage.getItem("phone");
 
   let defaultActiveNav = 0;
   if (location.pathname === "/magazine") defaultActiveNav = 1;
@@ -177,28 +178,30 @@ const BottomNavigator = () => {
               </NavIconContainer>
             </NavbarLink>
           </NavbarListItem>
-          <NavbarListItem onClick={() => handleNavClick(4)}>
-            <NavbarLink exact to="/mypage">
-              <NavIconContainer>
-                <Icon
-                  src={
-                    activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/navMypageIconClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/navMypageIcon.svg`
-                  }
-                  alt="Mypage Icon"
-                />
-                <Text
-                  src={
-                    activeNav === 4
-                      ? `${process.env.PUBLIC_URL}/assets/navMypageTextClicked.png`
-                      : `${process.env.PUBLIC_URL}/assets/navMypageText.png`
-                  }
-                  alt="Mypage Icon"
-                />
-              </NavIconContainer>
-            </NavbarLink>
-          </NavbarListItem>
+          {isLoggedIn && (
+            <NavbarListItem onClick={() => handleNavClick(4)}>
+              <NavbarLink exact to="/mypage">
+                <NavIconContainer>
+                  <Icon
+                    src={
+                      activeNav === 4
+                        ? `${process.env.PUBLIC_URL}/assets/navMypageIconClicked.svg`
+                        : `${process.env.PUBLIC_URL}/assets/navMypageIcon.svg`
+                    }
+                    alt="Mypage Icon"
+                  />
+                  <Text
+                    src={
+                      activeNav === 4
+                        ? `${process.env.PUBLIC_URL}/assets/navMypageTextClicked.png`
+                        : `${process.env.PUBLIC_URL}/assets/navMypageText.png`
+                    }
+                    alt="Mypage Icon"
+                  />
+                </NavIconContainer>
+              </NavbarLink>
+            </NavbarListItem>
+          )}
         </NavbarList>
       </NavbarContainer>
     )
