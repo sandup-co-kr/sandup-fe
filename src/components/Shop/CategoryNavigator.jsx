@@ -327,8 +327,8 @@ const CategoryNavigator = () => {
                 <Text
                   src={
                     activeNav === 1
-                      ? `${process.env.PUBLIC_URL}/assets/healthClicked.svg`
-                      : `${process.env.PUBLIC_URL}/assets/healthUnClicked.svg`
+                      ? `${process.env.PUBLIC_URL}/assets/healthText2.svg`
+                      : `${process.env.PUBLIC_URL}/assets/healthText1.svg`
                   }
                   alt="Health Text"
                 />
