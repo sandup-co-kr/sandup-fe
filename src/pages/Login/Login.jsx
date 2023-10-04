@@ -181,7 +181,7 @@ const Login = () => {
     localStorage.setItem("phone", "");
     await loginMutation.mutateAsync({ id, pw });
     const phone = localStorage.getItem("phone");
-    if (phone) navigate("/");
+    if (phone) window.location.href = "/";
     else setIsLoginFailed(true);
   };
 

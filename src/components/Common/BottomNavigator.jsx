@@ -71,6 +71,7 @@ const BottomNavigator = () => {
   const isLoggedIn = localStorage.getItem("phone");
 
   let defaultActiveNav = 0;
+  if (location.pathname === "/") defaultActiveNav = 0;
   if (location.pathname === "/magazine") defaultActiveNav = 1;
   if (location.pathname === "/community") defaultActiveNav = 2;
   if (location.pathname === "/shop") defaultActiveNav = 3;
