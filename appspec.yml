@@ -3,9 +3,9 @@ os: linux
 
 files:
   - source: /
-    destination: /usr/fe
+    destination: /home/ubuntu/fe
 permissions:
-  - object: /usr/fe
+  - object: /home/ubuntu/fe
     owner: ubuntu
     group: ubuntu
     mode: 755
