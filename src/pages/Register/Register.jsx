@@ -96,7 +96,7 @@ const Terms = styled(Typography)`
 const Essential1 = styled(Typography)`
   position: absolute;
   width: 36px;
-  height: 10px;
+  white-space: nowrap;
   left: calc(50% - 36px / 2 - 41px);
   top: 291px;
 
@@ -120,7 +120,7 @@ Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
 const Essential2 = styled(Typography)`
   position: absolute;
   width: 36px;
-  height: 10px;
+  white-space: nowrap;
   left: calc(50% - 36px / 2 + 60px);
   top: 336px;
 
@@ -927,7 +927,7 @@ function Register() {
       <GoBackButton onClick={handleGoBack} />
       {pageNo === 1 && (
         <>
-          <Title>샌드업에 오신 것을 환영합니다.</Title>
+          <Title>샌드업에 오신 것을 환영합니다</Title>
           <SubTitle>
             샌드업을 이용하시기 위해서는 약관동의가 필요합니다.
           </SubTitle>
