@@ -129,7 +129,12 @@ const CommunityDetail = () => {
       </ThumbnailContainer>
       <ContentContainer>
         {data.content.split("\n").map((line) => {
-          return <Content>{line.replace(/ /g, "\u00A0")}</Content>;
+          return (
+            <Content>
+              {line.replace(/ /g, "\u00A0")}
+              <br />
+            </Content>
+          );
         })}
       </ContentContainer>
     </>
