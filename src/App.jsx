@@ -9,9 +9,10 @@ import Community from "./pages/Community";
 import Shop from "./pages/Shop";
 import MyPage from "./pages/MyPage";
 import MagazineDetail from "./pages/Magazine/Detail/MagazineDetail";
-import Upload from "./pages/Magazine/Upload";
+import MagazineUpload from "./pages/Magazine/Upload";
 import CommunityDetail from "./pages/Community/Detail/CommunityDetail";
 import ShopDetail from "./pages/Shop/Detail/ShopDetail";
+import CommunityUpload from "./pages/Community/Upload";
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
       <Route exact path="/register" element={<Register />} />
       <Route exact path="/magazine" element={<Magazine />} />
       <Route exact path="/magazine/:id" element={<MagazineDetail />} />
-      <Route exact path="/magazine/upload" element={<Upload />} />
+      <Route exact path="/magazine/upload" element={<MagazineUpload />} />
       <Route exact path="/community" element={<Community />} />
       <Route exact path="/community/:id" element={<CommunityDetail />} />
+      <Route exact path="/community/upload" element={<CommunityUpload />} />
       <Route exact path="/shop" element={<Shop />} />
       <Route exact path="/shop/:id" element={<ShopDetail />} />
       <Route exact path="/mypage" element={<MyPage />} />

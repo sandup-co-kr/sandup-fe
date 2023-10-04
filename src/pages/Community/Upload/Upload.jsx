@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Select, { components } from "react-select";
 import usePostMagazineMutation from "../../../hooks/Magazine/usePostMagazineMutation";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import useConvertHtmlMutation from "../../../hooks/Magazine/useConvertHtmlMutation";
 
 const TopContainer = styled.div`
@@ -148,84 +146,21 @@ const SubTitleText = styled.p`
   line-height: 150%;
 `;
 
-const ContentInput = styled.input`
+const ContentInput = styled.textarea`
   margin-top: -8px;
   margin-left: 0px;
   width: 293px;
-  height: 41px;
+  height: 400px;
   border-radius: 3px;
   border: 1px solid var(--unnamed, #a3a3a3);
   padding-left: 10px;
 `;
 
-const GoodsText = styled.p`
-  margin-top: 19px;
-  margin-left: 24px;
-  color: var(--unnamed, #575757);
-  leading-trim: both;
-  text-edge: cap;
-  font-family: NanumSquare_ac;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%; /* 24px */
-`;
-
-const GoodsInput = styled.input`
-  margin-top: -8px;
-  margin-left: 23px;
-  width: 313px;
-  height: 41px;
-  border-radius: 3px;
-  border: 1px solid var(--unnamed, #a3a3a3);
-`;
-
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [html, setHtml] = useState("");
-  const [htmlModified, setHtmlModified] = useState("");
   const postMagazineMutation = usePostMagazineMutation();
   const convertHtmlMutation = useConvertHtmlMutation(setHtml);
-
-  useEffect(() => {
-    if (html !== "") {
-      const parser = new DOMParser();
-      const parsedHtml = parser.parseFromString(html.html, "text/html");
-
-      // HTML 문서에서 모든 이미지 요소를 선택합니다.
-      const imgElements = parsedHtml.querySelectorAll("img");
-      const imgElements2 = parsedHtml.querySelectorAll("a");
-
-      // 각 이미지 요소에 대해 작업을 수행합니다.
-      imgElements.forEach((imgElement, index) => {
-        imgElements2.forEach((imgElement2, index2) => {
-          const currentSrc = imgElement.getAttribute("src");
-          const currentSrc2 = imgElement2.getAttribute("data-linkdata");
-          // 이미지의 현재 src 속성을 확인하여 data URI 형식인 경우에만 대체합니다.
-          if (
-            currentSrc &&
-            currentSrc.startsWith("data:") &&
-            index === index2
-          ) {
-            console.log(currentSrc2);
-            // 이미지의 현재 src 속성을 확인하여 data URI 형식인 경우에만 대체합니다.
-            const newSrc =
-              JSON.parse(currentSrc2)
-                .src.split("dthumb?src=%22")[1]
-                ?.split("%22&service=scs")[0] || JSON.parse(currentSrc2).src;
-            console.log(newSrc);
-            // 새로운 src 값을 설정하여 이미지를 대체합니다.
-            imgElement.setAttribute("src", newSrc);
-            return;
-          }
-        });
-      });
-
-      // 변경된 HTML을 문자열로 변환하여 다시 업데이트합니다.
-      const modifiedHtml = new XMLSerializer().serializeToString(parsedHtml);
-      setHtmlModified(modifiedHtml);
-    }
-  }, [html]);
 
   const DropdownIndicator = (props) => {
     return (
@@ -245,10 +180,6 @@ const Upload = () => {
 
   const handleImgChange = (e) => {
     setFile(URL?.createObjectURL(e.target.files[0]));
-  };
-
-  const handleUrlChange = (e) => {
-    convertHtmlMutation.mutate(e.target.value);
   };
 
   const handleUpload = async (e) => {
@@ -284,7 +215,6 @@ const Upload = () => {
     formData.append("linkText", e.target.linkText.value);
     formData.append("url", e.target.content.value);
     formData.append("img", document.getElementById("fileInput").files[0]);
-    formData.append("html", htmlModified);
     formData.append("content", html.content);
     e.preventDefault();
     try {
@@ -304,7 +234,7 @@ const Upload = () => {
           alt="Go Back Button"
           onClick={handelGoBack}
         />
-        <Title>칼럼 업로드</Title>
+        <Title>글쓰기</Title>
         <label for="submit">
           <UploadButton
             src={`${process.env.PUBLIC_URL}/assets/uploadButton.svg`}
@@ -356,30 +286,7 @@ const Upload = () => {
         <SeparateLine
           src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
         />
-        <SubTitleText>부제목</SubTitleText>
-        <ContentInput name="subTitle" placeholder="부제목을 입력해주세요" />
-        <ContentText>링크</ContentText>
-        <ContentInput name="linkText" placeholder="링크텍스트를 입력해주세요" />
-        <ContentText>본문</ContentText>
-        <ContentInput
-          name="content"
-          placeholder="네이버 글 URL을 입력해주세요"
-          onChange={handleUrlChange}
-        />
-        <CKEditor
-          editor={ClassicEditor}
-          data={htmlModified}
-          onInit={(editor) => {
-            // You can store the "editor" and use when it is needed.
-            console.log("Editor is ready to use!", editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-        />
-        {/* <GoodsText>상품 등록</GoodsText>
-        <GoodsInput placeholder="태그할 상품" /> */}
+        <ContentInput name="subTitle" placeholder="내용을 입력해주세요" />
       </MainContainer>
     </form>
   );
