@@ -254,26 +254,32 @@ const Upload = () => {
   const handleUpload = async (e) => {
     console.log(e);
     if (e.target.title.value === "") {
+      e.preventDefault();
       alert("제목을 입력해주세요.");
       return;
     }
     if (e.target.subTitle.value === "") {
+      e.preventDefault();
       alert("부제목을 입력해주세요.");
       return;
     }
     if (e.target.linkText.value === "") {
+      e.preventDefault();
       alert("링크 텍스트를 입력해주세요.");
       return;
     }
     if (e.target.category.value === "") {
+      e.preventDefault();
       alert("카테고리를 선택해주세요.");
       return;
     }
     if (e.target.content.value === "") {
+      e.preventDefault();
       alert("본문 url을 입력해주세요.");
       return;
     }
     if (document.getElementById("fileInput").files[0] === undefined) {
+      e.preventDefault();
       alert("이미지를 업로드해주세요.");
       return;
     }
