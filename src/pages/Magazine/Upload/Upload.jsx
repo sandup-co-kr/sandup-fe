@@ -251,7 +251,7 @@ const Upload = () => {
     convertHtmlMutation.mutate(e.target.value);
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     console.log(e);
     if (e.target.title.value === "") {
       alert("제목을 입력해주세요.");
@@ -286,12 +286,16 @@ const Upload = () => {
     formData.append("img", document.getElementById("fileInput").files[0]);
     formData.append("html", htmlModified);
     formData.append("content", html.content);
-    postMagazineMutation.mutate(formData);
     e.preventDefault();
-    alert("업로드 되었습니다.");
-    window.location.href = "/magazine";
+    try {
+      await postMagazineMutation.mutateAsync(formData);
+      alert("업로드 되었습니다.");
+      window.location.href = "/magazine";
+    } catch (error) {
+      console.error("업로드 실패:", error);
+      // 실패 처리 로직 추가
+    }
   };
-
   return (
     <form onSubmit={handleUpload}>
       <TopContainer>
