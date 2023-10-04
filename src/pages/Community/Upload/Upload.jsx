@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Select, { components } from "react-select";
-import usePostMagazineMutation from "../../../hooks/Magazine/usePostMagazineMutation";
-import useConvertHtmlMutation from "../../../hooks/Magazine/useConvertHtmlMutation";
+import usePostCommunityMutation from "../../../hooks/Community/usePostCommunityMutation";
 
 const TopContainer = styled.div`
   height: 73px;
@@ -158,9 +157,7 @@ const ContentInput = styled.textarea`
 
 const Upload = () => {
   const [file, setFile] = useState(null);
-  const [html, setHtml] = useState("");
-  const postMagazineMutation = usePostMagazineMutation();
-  const convertHtmlMutation = useConvertHtmlMutation(setHtml);
+  const postCommunityMutation = usePostCommunityMutation();
 
   const DropdownIndicator = (props) => {
     return (
@@ -175,7 +172,7 @@ const Upload = () => {
   };
 
   const handelGoBack = () => {
-    window.location.href = "/magazine";
+    window.location.href = "/community";
   };
 
   const handleImgChange = (e) => {
@@ -183,44 +180,32 @@ const Upload = () => {
   };
 
   const handleUpload = async (e) => {
-    console.log(e);
     if (e.target.title.value === "") {
+      e.preventDefault();
       alert("제목을 입력해주세요.");
       return;
     }
-    if (e.target.subTitle.value === "") {
-      alert("부제목을 입력해주세요.");
-      return;
-    }
-    if (e.target.linkText.value === "") {
-      alert("링크 텍스트를 입력해주세요.");
-      return;
-    }
     if (e.target.category.value === "") {
+      e.preventDefault();
       alert("카테고리를 선택해주세요.");
       return;
     }
     if (e.target.content.value === "") {
-      alert("본문 url을 입력해주세요.");
+      e.preventDefault();
+      alert("내용을 입력해주세요.");
       return;
     }
-    if (document.getElementById("fileInput").files[0] === undefined) {
-      alert("이미지를 업로드해주세요.");
-      return;
-    }
+
     const formData = new FormData();
     formData.append("title", e.target.title.value);
     formData.append("category", e.target.category.value);
-    formData.append("subTitle", e.target.subTitle.value);
-    formData.append("linkText", e.target.linkText.value);
-    formData.append("url", e.target.content.value);
-    formData.append("img", document.getElementById("fileInput").files[0]);
-    formData.append("content", html.content);
+    formData.append("content", e.target.content.value);
+    formData.append("img", document.getElementById("fileInput")?.files[0]);
     e.preventDefault();
     try {
-      await postMagazineMutation.mutateAsync(formData);
+      await postCommunityMutation.mutateAsync(formData);
       alert("업로드 되었습니다.");
-      window.location.href = "/magazine";
+      window.location.href = "/community";
     } catch (error) {
       console.error("업로드 실패:", error);
       // 실패 처리 로직 추가
@@ -286,7 +271,7 @@ const Upload = () => {
         <SeparateLine
           src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
         />
-        <ContentInput name="subTitle" placeholder="내용을 입력해주세요" />
+        <ContentInput name="content" placeholder="내용을 입력해주세요" />
       </MainContainer>
     </form>
   );
