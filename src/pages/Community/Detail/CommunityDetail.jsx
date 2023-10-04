@@ -3,11 +3,23 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../../react-query/keys";
 import styled from "@emotion/styled";
 import getCommunityDetail from "../../../services/Community/Get/getCommunityDetail";
+import { Typography } from "@mui/material";
 
-const Content = styled.div`
+const ContentContainer = styled.div`
   width: 96%;
   height: 100%;
   padding: 4% 2%;
+`;
+
+const Content = styled(Typography)`
+  color: var(--, #575757);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: NanumSquare_ac;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
 `;
 
 const ThumbnailContainer = styled.div`
@@ -115,7 +127,11 @@ const CommunityDetail = () => {
         <Title>{data.title}</Title>
         <Date>{data.date.replaceAll("-", ".").split("T")[0]}</Date>
       </ThumbnailContainer>
-      <Content>{data.content}</Content>
+      <ContentContainer>
+        {data.content.split("\n").map((line) => {
+          return <Content>{line.replace(/ /g, "\u00A0")}</Content>;
+        })}
+      </ContentContainer>
     </>
   );
 };

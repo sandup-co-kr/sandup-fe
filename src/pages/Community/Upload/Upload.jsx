@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Select, { components } from "react-select";
 import usePostCommunityMutation from "../../../hooks/Community/usePostCommunityMutation";
+import { TextField } from "@mui/material";
 
 const TopContainer = styled.div`
   height: 73px;
@@ -145,14 +146,10 @@ const SubTitleText = styled.p`
   line-height: 150%;
 `;
 
-const ContentInput = styled.textarea`
-  margin-top: -8px;
+const ContentInput = styled(TextField)`
+  margin-top: 15px;
   margin-left: 0px;
   width: 293px;
-  height: 400px;
-  border-radius: 3px;
-  border: 1px solid var(--unnamed, #a3a3a3);
-  padding-left: 10px;
 `;
 
 const Upload = () => {
@@ -201,6 +198,7 @@ const Upload = () => {
     formData.append("category", e.target.category.value);
     formData.append("content", e.target.content.value);
     formData.append("img", document.getElementById("fileInput")?.files[0]);
+    formData.append("name", localStorage.getItem("name"));
     e.preventDefault();
     try {
       await postCommunityMutation.mutateAsync(formData);
@@ -271,7 +269,12 @@ const Upload = () => {
         <SeparateLine
           src={`${process.env.PUBLIC_URL}/assets/separateLine.svg`}
         />
-        <ContentInput name="content" placeholder="내용을 입력해주세요" />
+        <ContentInput
+          multiline
+          rows={20}
+          name="content"
+          placeholder="내용을 입력해주세요"
+        />
       </MainContainer>
     </form>
   );
