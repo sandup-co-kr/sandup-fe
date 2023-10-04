@@ -77,7 +77,7 @@ const CheckButton3 = styled(Button)(() => ({
 const Terms = styled(Typography)`
   position: absolute;
   width: 55px;
-  max-height: 10px;
+  white-space: nowrap;
   left: calc(50% - 52px / 2 - 93px);
   top: 291px;
 
@@ -198,7 +198,7 @@ const Consent = styled(Typography)`
 
   position: absolute;
   width: 156px;
-  max-height: 10px;
+  white-space: nowrap;
   left: calc(50% - 154px / 2 - 42px);
   top: 336px;
 
@@ -237,7 +237,7 @@ const AgreeText = styled(Typography)`
 
   position: absolute;
   width: 99px;
-  max-height: 10px;
+  white-space: nowrap;
   left: calc(50% - 99px / 2 - 31.5px);
   top: 404px;
 
@@ -276,7 +276,7 @@ const SubmitText = styled(Typography)`
 
   position: absolute;
   width: 55px;
-  height: 10px;
+  white-space: nowrap;
   left: calc(50% - 55px / 2 + 1.5px);
   top: 692px;
 
