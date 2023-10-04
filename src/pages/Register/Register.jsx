@@ -927,7 +927,7 @@ function Register() {
       <GoBackButton onClick={handleGoBack} />
       {pageNo === 1 && (
         <>
-          <Title>샌드업에 오신 것을 환영합니다</Title>
+          <Title>샌드업에 오신 것을 환영합니다.</Title>
           <SubTitle>
             샌드업을 이용하시기 위해서는 약관동의가 필요합니다.
           </SubTitle>
