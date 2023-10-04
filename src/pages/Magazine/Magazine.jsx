@@ -48,15 +48,13 @@ const Magazine = () => {
   return (
     <>
       <CategoryNavigator />
-      {userInfo?.admin ? (
+      {userInfo?.admin && (
         <UploadImgFab variant="extended" onClick={handelUploadButtonClick}>
           <UploadImg
             src={`${process.env.PUBLIC_URL}/assets/uploadFloatingButton.svg`}
             alt="Upload Button"
           />
         </UploadImgFab>
-      ) : (
-        <></>
       )}
     </>
   );
