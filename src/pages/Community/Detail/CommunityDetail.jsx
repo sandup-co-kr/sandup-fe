@@ -26,6 +26,7 @@ const Content = styled(Typography)`
 const ThumbnailContainer = styled.div`
   width: 100%;
   height: 340px;
+  background-color: #fff;
   filter: ${(props) => (props.showChildMenu ? "brightness(0.45)" : "none")};
   pointer-events: ${(props) => (props.showChildMenu ? "none" : "auto")};
 `;
