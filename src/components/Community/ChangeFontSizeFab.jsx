@@ -26,8 +26,8 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          background: "none",
-          boxShadow: "none",
+          background: "none !important",
+          boxShadow: "none !important",
         }}
         onClick={onFloatingMenuClick}
       >
@@ -55,8 +55,8 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
             onMouseEnter={() => handleFontSizeChange(30)}
             style={{
               marginRight: "10px",
-              background: "none",
-              boxShadow: "none",
+              background: "none !important",
+              boxShadow: "none !important",
             }}
           >
             <Typography
@@ -90,8 +90,8 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
             style={{
               marginTop: "8px",
               marginRight: "10px",
-              background: "none",
-              boxShadow: "none",
+              background: "none !important",
+              boxShadow: "none !important",
             }}
           >
             <Typography
