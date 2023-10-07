@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../../react-query/keys";
 import styled from "@emotion/styled";
 import getCommunityDetail from "../../../services/Community/Get/getCommunityDetail";
 import { Typography } from "@mui/material";
+import ChangeFontSizeFab from "../../../components/Common/ChangeFontSizeFab";
 
 const ContentContainer = styled.div`
   width: 96%;
@@ -25,6 +26,8 @@ const Content = styled(Typography)`
 const ThumbnailContainer = styled.div`
   width: 100%;
   height: 340px;
+  filter: ${(props) => (props.showChildMenu ? "brightness(0.45)" : "none")};
+  pointer-events: ${(props) => (props.showChildMenu ? "none" : "auto")};
 `;
 
 const GoBackButton = styled.img`
@@ -93,6 +96,12 @@ const CommunityDetail = () => {
     window.history.back();
   };
 
+  const [showChildMenu, setShowChildMenu] = useState(false);
+
+  const handleFloatingMenuClick = () => {
+    setShowChildMenu(!showChildMenu);
+  };
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
@@ -113,7 +122,7 @@ const CommunityDetail = () => {
 
   return (
     <>
-      <ThumbnailContainer>
+      <ThumbnailContainer showChildMenu={showChildMenu}>
         <GoBackButton
           src={`${process.env.PUBLIC_URL}/assets/goBackButtonWhite.svg`}
           onClick={handleGoBack}
@@ -127,16 +136,11 @@ const CommunityDetail = () => {
         <Title>{data.title}</Title>
         <Date>{data.date.replaceAll("-", ".").split("T")[0]}</Date>
       </ThumbnailContainer>
-      <ContentContainer>
-        {data.content.split("\n").map((line) => {
-          return (
-            <Content>
-              {line.replace(/ /g, "\u00A0")}
-              <br />
-            </Content>
-          );
-        })}
-      </ContentContainer>
+      <ChangeFontSizeFab
+        content={data.content}
+        showChildMenu={showChildMenu}
+        onFloatingMenuClick={handleFloatingMenuClick}
+      />
     </>
   );
 };
