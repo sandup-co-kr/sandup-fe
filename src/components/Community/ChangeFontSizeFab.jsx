@@ -12,6 +12,11 @@ const Content = styled.div`
   filter: ${(props) => (props.showChildMenu ? "brightness(0.5)" : "none")};
 `;
 
+const FloatingMenu = styled(Fab)`
+  background: "none !important",
+  boxShadow: "none !important",
+`;
+
 const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
   const [fontSize, setFontSize] = useState(16);
 
@@ -21,13 +26,11 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
 
   return (
     <div>
-      <Fab
+      <FloatingMenu
         sx={{
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          background: "none !important",
-          boxShadow: "none !important",
         }}
         onClick={onFloatingMenuClick}
       >
@@ -39,7 +42,7 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
           }
           alt="floatingMenu"
         />
-      </Fab>
+      </FloatingMenu>
       {showChildMenu && (
         <div
           style={{
@@ -51,12 +54,10 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
             zIndex: "2",
           }}
         >
-          <Fab
+          <FloatingMenu
             onMouseEnter={() => handleFontSizeChange(30)}
             style={{
               marginRight: "10px",
-              background: "none !important",
-              boxShadow: "none !important",
             }}
           >
             <Typography
@@ -84,14 +85,12 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
               src={`${process.env.PUBLIC_URL}/assets/floatingButtonFontBig.svg`}
               alt="Change Font Size Big"
             />
-          </Fab>
-          <Fab
+          </FloatingMenu>
+          <FloatingMenu
             onMouseEnter={() => handleFontSizeChange(16)}
             style={{
               marginTop: "8px",
               marginRight: "10px",
-              background: "none !important",
-              boxShadow: "none !important",
             }}
           >
             <Typography
@@ -119,7 +118,7 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
               src={`${process.env.PUBLIC_URL}/assets/floatingButtonFontSmall.svg`}
               alt="Change Font Size Small"
             />
-          </Fab>
+          </FloatingMenu>
         </div>
       )}
       <Content showChildMenu={showChildMenu}>
