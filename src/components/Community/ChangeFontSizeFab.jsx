@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 const Content = styled.div`
   margin-top: -10px;
   width: 100%;
-  height: 500px;
+  height: 100vh;
   background-color: #f5f5f5;
   z-index: 1;
   filter: ${(props) => (props.showChildMenu ? "brightness(0.5)" : "none")};
