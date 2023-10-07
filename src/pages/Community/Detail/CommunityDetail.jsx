@@ -4,7 +4,7 @@ import { queryKeys } from "../../../react-query/keys";
 import styled from "@emotion/styled";
 import getCommunityDetail from "../../../services/Community/Get/getCommunityDetail";
 import { Typography } from "@mui/material";
-import ChangeFontSizeFab from "../../../components/Common/ChangeFontSizeFab";
+import ChangeFontSizeFab from "../../../components/Community/ChangeFontSizeFab";
 
 const ContentContainer = styled.div`
   width: 96%;
