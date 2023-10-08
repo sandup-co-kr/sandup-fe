@@ -55,7 +55,7 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
           }}
         >
           <FloatingMenu
-            onMouseEnter={() => handleFontSizeChange(30)}
+            onClick={() => handleFontSizeChange(30)}
             style={{
               marginRight: "10px",
             }}
@@ -87,7 +87,7 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
             />
           </FloatingMenu>
           <FloatingMenu
-            onMouseEnter={() => handleFontSizeChange(16)}
+            onClick={() => handleFontSizeChange(16)}
             style={{
               marginTop: "8px",
               marginRight: "10px",
