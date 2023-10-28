@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Select, { components } from "react-select";
-import usePostCommunityMutation from "../../../hooks/Community/usePostCommunityMutation";
 import { TextField } from "@mui/material";
 import usePostShopMutation from "../../../hooks/Shop/usePostShopMutation";
 
@@ -205,11 +204,6 @@ const Upload = () => {
       alert("할인율을 입력해주세요.");
       return;
     }
-    if (e.target.description.value === "") {
-      e.preventDefault();
-      alert("상품 설명을 입력해주세요.");
-      return;
-    }
     if (document.getElementById("fileInputDetail")?.files[0] === undefined) {
       e.preventDefault();
       alert("상세 이미지를 업로드해주세요.");
@@ -224,7 +218,6 @@ const Upload = () => {
     formData.append("coupang", e.target.coupang.value);
     formData.append("price", e.target.price.value);
     formData.append("discount", e.target.discount.value);
-    formData.append("description", e.target.description.value);
     formData.append(
       "imgMain",
       document.querySelector("input[name=img-main]")?.files[0]
@@ -314,13 +307,6 @@ const Upload = () => {
         <ContentInput type="price" name="price" placeholder="가격" />
         <SubTitle>할인율(%)</SubTitle>
         <ContentInput type="discount" name="discount" placeholder="할인율" />
-        <SubTitle>상품 설명</SubTitle>
-        <ContentInput
-          multiline
-          rows={5}
-          name="description"
-          placeholder="내용을 입력해주세요"
-        />
         <SubTitle>상세 이미지</SubTitle>
         <DetailImageContainer>
           <label for="fileInputDetail" class="image-button">
