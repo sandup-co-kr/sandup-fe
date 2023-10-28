@@ -4,6 +4,7 @@ import { queryKeys } from "../../../react-query/keys";
 import styled from "@emotion/styled";
 import getShopDetail from "../../../services/Shop/Get/getShopDetail";
 import Footer from "../../../components/Common/Footer";
+import { Typography } from "@mui/material";
 
 const ThumbnailContainer = styled.div`
   width: 100%;
@@ -118,6 +119,14 @@ const PriceContainer = styled.div`
   flex-direction: row-reverse;
 `;
 
+const Description = styled.div`
+  margin-top: 20px;
+  margin-left: 17px;
+  margin-right: 17px;
+  color: var(--unnamed, #333);
+  font-size: 14px;
+`;
+
 const ShopDetail = () => {
   const shopId = window.location.href.split("/")[4];
   const { data, isLoading } = useQuery(
@@ -180,6 +189,18 @@ const ShopDetail = () => {
             </PriceContainer>
           </TitleSubContainer2>
         </TitleContainer>
+        <Description>
+          <Typography variant="body1">
+            {data.description?.split("\n").map((line) => {
+              return (
+                <>
+                  {line.replace(/ /g, "\u00A0")}
+                  <br />
+                </>
+              );
+            })}
+          </Typography>
+        </Description>
       </ThumbnailContainer>
       <BlankDiv />
       <ImgDetail src={data.img_detail} />
