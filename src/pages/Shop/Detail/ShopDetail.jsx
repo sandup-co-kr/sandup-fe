@@ -127,6 +127,38 @@ const Description = styled.div`
   font-size: 14px;
 `;
 
+const ButtonContainer = styled.div`
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const NaverButton = styled.button`
+  width: 150px;
+  height: 40px;
+  background-color: #1ec800;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+  border: none;
+`;
+
+const CoupangButton = styled.button`
+  width: 150px;
+  height: 40px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+`;
+
 const ShopDetail = () => {
   const shopId = window.location.href.split("/")[4];
   const { data, isLoading } = useQuery(
@@ -139,6 +171,13 @@ const ShopDetail = () => {
 
   const handleGoBack = () => {
     window.history.back();
+  };
+
+  const handleShopUrl = (link) => {
+    if (!link.startsWith("http://") && !link.startsWith("https://")) {
+      link = "http://" + link;
+    }
+    window.open(link);
   };
 
   const contentRef = useRef(null);
@@ -204,6 +243,14 @@ const ShopDetail = () => {
       </ThumbnailContainer>
       <BlankDiv />
       <ImgDetail src={data.img_detail} />
+      <ButtonContainer>
+        <NaverButton onClick={() => handleShopUrl(data.naver)}>
+          네이버 쇼핑에서 보기
+        </NaverButton>
+        <CoupangButton onClick={() => handleShopUrl(data.coupang)}>
+          쿠팡에서 보기
+        </CoupangButton>
+      </ButtonContainer>
       <Footer />
     </>
   );
