@@ -4,6 +4,7 @@ import { queryKeys } from "../../react-query/keys";
 import getUserInfo from "../../services/Common/Get/getUserInfo";
 import styled from "@emotion/styled";
 import Footer from "../../components/Common/Footer";
+import usePatchUserProfileMutation from "../../hooks/MyPage/usePatchUserProfileMutation";
 
 const ProfileContainer = styled.div`
   position: absolute;
@@ -166,9 +167,14 @@ function MyPage() {
   const phone = localStorage.getItem("phone");
   const [userInfo, setUserInfo] = useState([]);
   const [file, setFile] = useState(null);
+  const patchUserProfileMutation = usePatchUserProfileMutation();
 
   const changeProfileHandler = (e) => {
     setFile(URL?.createObjectURL(e.target.files[0]));
+    const formData = new FormData();
+    formData.append("img", e.target.files[0]);
+    formData.append("phone", phone);
+    patchUserProfileMutation.mutate(formData);
   };
 
   const { isLoading: loadingList } = useQuery(
