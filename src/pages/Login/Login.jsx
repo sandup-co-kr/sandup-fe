@@ -213,7 +213,7 @@ const Login = () => {
       <RegisterButton onClick={handelRegister}>회원가입</RegisterButton>
       <Or />
       <FindInfoButton>아이디/비밀번호 찾기</FindInfoButton>
-      <EasyLoginText>간편 로그인</EasyLoginText>
+      {/* <EasyLoginText>간편 로그인</EasyLoginText>
       <SocialLoginContainer>
         <SocialLoginButton>
           <SocialLoginIcon
@@ -233,7 +233,7 @@ const Login = () => {
             alt="Kakao Login"
           />
         </SocialLoginButton>
-      </SocialLoginContainer>
+      </SocialLoginContainer> */}
       <Modal open={isLoginFailed} onClose={handleModalClose}>
         <LoginFailedModal>
           <Typography variant="h6">로그인 실패</Typography>
