@@ -223,13 +223,13 @@ function MyPage() {
           </PointTextContainer>
           <PointText>저장한 글</PointText>
         </PointContainer>
-        <PointContainer>
+        {/* <PointContainer>
           <PointTextContainer>
             <PointIcon src={`${process.env.PUBLIC_URL}/assets/order.svg`} />
             <PointInt>{userInfo.ordered}</PointInt>
           </PointTextContainer>
           <PointText>주문내역</PointText>
-        </PointContainer>
+        </PointContainer> */}
       </PointBox>
       <CategoryText1>내 활동</CategoryText1>
       <CategoryContainer>
@@ -256,7 +256,7 @@ function MyPage() {
           src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
         />
       </CategoryContainer>
-      <BlankDiv />
+      {/* <BlankDiv />
       <CategoryText2>쇼핑몰</CategoryText2>
       <CategoryContainer>
         <Category>주문내역</Category>
@@ -281,7 +281,7 @@ function MyPage() {
         <CategoryIcon
           src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
         />
-      </CategoryContainer>
+      </CategoryContainer> */}
       <Footer />
     </>
   );
