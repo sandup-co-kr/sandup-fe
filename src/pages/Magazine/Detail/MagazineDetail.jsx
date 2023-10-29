@@ -1,14 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../../react-query/keys";
 import getMagazineDetail from "../../../services/Magazine/Get/getMagazineDetail";
 import styled from "@emotion/styled";
-
-const Content = styled.div`
-  width: 96%;
-  height: 100%;
-  padding: 4% 2%;
-`;
+import ChangeFontSizeFab from "../../../components/Magazine/ChangeFontSizeFab";
 
 const ThumbnailContainer = styled.div`
   width: 100%;
@@ -81,6 +76,12 @@ const MagazineDetail = () => {
     window.history.back();
   };
 
+  const [showChildMenu, setShowChildMenu] = useState(false);
+
+  const handleFloatingMenuClick = () => {
+    setShowChildMenu(!showChildMenu);
+  };
+
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -132,7 +133,11 @@ const MagazineDetail = () => {
         <Title>{data.title}</Title>
         <Date>{data.date.replaceAll("-", ".").split("T")[0]}</Date>
       </ThumbnailContainer>
-      <Content ref={contentRef} />
+      <ChangeFontSizeFab
+        content={data.html}
+        showChildMenu={showChildMenu}
+        onFloatingMenuClick={handleFloatingMenuClick}
+      />
     </>
   );
 };
