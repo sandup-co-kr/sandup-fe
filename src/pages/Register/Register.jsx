@@ -988,6 +988,7 @@ function Register() {
               value={id}
               placeholder="아이디"
               onChange={handleIdChange}
+              autoFocus={false}
             />
             {isIdDuplicate && (
               <PWValidText style={{ marginLeft: "-130px" }}>
@@ -1002,6 +1003,7 @@ function Register() {
               type="password"
               placeholder="비밀번호"
               onChange={handlePwChange}
+              autoFocus={false}
             />
 
             <PWInputCheck
@@ -1009,6 +1011,7 @@ function Register() {
               type="password"
               placeholder="비밀번호 확인"
               onChange={handleCheckPwChange}
+              autoFocus={false}
             />
 
             {!pwValid && (
@@ -1027,6 +1030,7 @@ function Register() {
               value={phone}
               onChange={handlePhoneChange}
               maxLength={13}
+              autoFocus={false}
             />
             {isPhoneDuplicate && (
               <PWValidText style={{ marginLeft: "-130px" }}>
@@ -1042,6 +1046,7 @@ function Register() {
                 value={email}
                 placeholder="이메일"
                 onChange={handleEmailChange}
+                autoFocus={false}
               />
               <AtText>@</AtText>
               <EmailSelect
@@ -1097,7 +1102,7 @@ function Register() {
               />
             </ImageContainer>
             <NameText>이름</NameText>
-            <NameInput name="name" placeholder="이름" />
+            <NameInput name="name" placeholder="이름" autoFocus={false} />
             <GenderText>성별</GenderText>
             <GenderContainer>
               <GenderButton
@@ -1124,13 +1129,20 @@ function Register() {
                 name="birthYear"
                 maxLength={4}
                 placeholder="년(4자리)"
+                autoFocus={false}
               />
               <BirthMonthInput
                 name="birthMonth"
                 maxLength={2}
                 placeholder="월"
+                autoFocus={false}
               />
-              <BirthDayInput name="birthDay" maxLength={2} placeholder="일" />
+              <BirthDayInput
+                name="birthDay"
+                maxLength={2}
+                placeholder="일"
+                autoFocus={false}
+              />
             </BirthContainer>
             <label for="submit">
               <SubmitButton3 type="submit" id="submit">
