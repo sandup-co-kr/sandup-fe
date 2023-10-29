@@ -6,6 +6,7 @@ import checkIdDuplicate from "../../services/Register/Get/checkIdDuplicate";
 import { useQuery } from "react-query";
 import checkPhoneDuplicate from "../../services/Register/Get/checkPhoneDuplicate";
 import usePostRegisterMutation from "../../hooks/Register/usePostRegisterMutation";
+import useLoginMutation from "../../hooks/Login/useLoginMutation";
 
 const GoBackButton = styled(IconButton)`
   margin-left: 22px;
@@ -733,6 +734,7 @@ function Register() {
   const [gender, setGender] = useState(0);
 
   const postRegisterMutation = usePostRegisterMutation();
+  const loginMutation = useLoginMutation();
 
   const emailDomains = [
     "naver.com",
@@ -895,31 +897,49 @@ function Register() {
     setFile(URL?.createObjectURL(e.target.files[0]));
   };
 
-  const handleUpload = (e) => {
-    const formData = new FormData();
-    formData.append("img", document.getElementById("fileInput").files[0]);
-    formData.append("id", id);
-    formData.append("pw", pw);
-    formData.append("phone", phone);
-    formData.append("email", email + "@" + selectedDomain);
-    formData.append("name", e.target.name.value);
-    formData.append("gender", gender);
-    formData.append(
-      "birth",
-      e.target.birthYear.value &&
-        e.target.birthMonth.value &&
-        e.target.birthDay.value
-        ? e.target.birthYear.value +
-            "-" +
-            e.target.birthMonth.value +
-            "-" +
-            e.target.birthDay.value
-        : "0000-01-01"
-    );
-    postRegisterMutation.mutate(formData);
-    alert("회원가입이 완료되었습니다.");
+  const handleUpload = async (e) => {
     e.preventDefault();
-    window.location.href = "/login";
+
+    try {
+      const formData = new FormData();
+      formData.append("img", document.getElementById("fileInput").files[0]);
+      formData.append("id", id);
+      formData.append("pw", pw);
+      formData.append("phone", phone);
+      formData.append("email", email + "@" + selectedDomain);
+      formData.append("name", e.target.name.value);
+      formData.append("gender", gender);
+      formData.append(
+        "birth",
+        e.target.birthYear.value &&
+          e.target.birthMonth.value &&
+          e.target.birthDay.value
+          ? e.target.birthYear.value +
+              "-" +
+              e.target.birthMonth.value +
+              "-" +
+              e.target.birthDay.value
+          : "0000-01-01"
+      );
+
+      // 회원가입 요청을 보내고 성공했을 때 로그인을 시도합니다.
+      await postRegisterMutation.mutateAsync(formData);
+
+      // 회원가입 성공 메시지 표시
+      alert("회원가입이 완료되었습니다.");
+
+      // 로그인을 시도합니다.
+      await loginMutation.mutateAsync({ id, pw });
+
+      // 로그인 성공 시 페이지를 리디렉션합니다.
+      window.location.href = "/";
+    } catch (error) {
+      // 회원가입 또는 로그인 요청이 실패한 경우 오류 처리
+      console.error("회원가입 또는 로그인 요청 실패:", error);
+      alert(
+        "회원가입 또는 로그인 요청에 실패했습니다. 나중에 다시 시도하세요."
+      );
+    }
   };
 
   return (
