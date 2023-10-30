@@ -237,7 +237,7 @@ function MyPage() {
           <PointText>주문내역</PointText>
         </PointContainer> */}
       </PointBox>
-      <CategoryText1>내 활동</CategoryText1>
+      {/* <CategoryText1>내 활동</CategoryText1>
       <CategoryContainer>
         <Category>작성한 글</Category>
         <CategoryIcon
@@ -261,7 +261,7 @@ function MyPage() {
         <CategoryIcon
           src={`${process.env.PUBLIC_URL}/assets/mypageArrow.svg`}
         />
-      </CategoryContainer>
+      </CategoryContainer> */}
       {/* <BlankDiv />
       <CategoryText2>쇼핑몰</CategoryText2>
       <CategoryContainer>
