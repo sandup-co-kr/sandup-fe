@@ -24,6 +24,8 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
     setFontSize(newFontSize);
   };
 
+  const handleShareKakao = () => {};
+
   return (
     <div>
       <FloatingMenu
@@ -54,6 +56,40 @@ const ChangeFontSizeFab = ({ content, showChildMenu, onFloatingMenuClick }) => {
             zIndex: "2",
           }}
         >
+          <FloatingMenu
+            onClick={() => handleShareKakao()}
+            style={{
+              marginRight: "10px",
+              marginBottom: "8px",
+            }}
+          >
+            <Typography
+              variant="body1"
+              style={{
+                whiteSpace: "nowrap",
+                color: "#EEE",
+                leadingTrim: "both",
+                textEdge: "cap",
+                fontFamily: "NanumSquare_ac",
+                fontSize: "13px",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "150%",
+                marginRight: "10.5px",
+              }}
+            >
+              카카오톡으로 공유
+            </Typography>
+            <img
+              style={{
+                width: "58px",
+                height: "58px",
+                marginRight: "105px",
+              }}
+              src={`${process.env.PUBLIC_URL}/assets/kakao.svg`}
+              alt="Change Font Size Big"
+            />
+          </FloatingMenu>
           <FloatingMenu
             onClick={() => handleFontSizeChange(30)}
             style={{
